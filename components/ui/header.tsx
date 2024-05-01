@@ -21,15 +21,16 @@ export default function Header() {
             <ul className="flex grow justify-end flex-wrap items-center">
               <li>
                 <Link
-                  href="/signin"
-                  className="font-medium text-green-600 hover:text-gray-200 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                  href="/about-us"
+                  className="font-medium  hover:text-gray-400 px-4 py-3 flex items-center transition duration-150 ease-in-out"
                 >
-                  Sign in
+                  About Us
                 </Link>
               </li>
+              
               <li>
-                <Link href="/signup" className="btn-sm text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 ml-3">
-                  Sign up
+                <Link href="/loan-application" className="btn-sm text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 ml-3">
+                  Apply For Loan
                 </Link>
               </li>
             </ul>
