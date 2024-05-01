@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import MobileMenu from './mobile-menu'
+import Link from "next/link";
+import MobileMenu from "./mobile-menu";
 
 export default function Header() {
   return (
@@ -10,8 +10,11 @@ export default function Header() {
           <div className="shrink-0 mr-4">
             {/* Logo */}
             <Link href="/" className="block" aria-label="logo">
-              
-              <img className="h-14 w-14 fill-current" src="../images/lendingforte.png" alt="Workflow" />
+              <img
+                className="h-14 w-14 fill-current"
+                src="../images/lendingforte/lending_FORTE__4_-removebg-preview.png"
+                alt="Workflow"
+              />
             </Link>
           </div>
 
@@ -27,9 +30,20 @@ export default function Header() {
                   About Us
                 </Link>
               </li>
-              
               <li>
-                <Link href="/loan-application" className="btn-sm text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 ml-3">
+                <Link
+                  href="/contact-us"
+                  className="font-medium  hover:text-gray-400 px-4 py-3 flex items-center transition duration-150 ease-in-out"
+                >
+                  Contact Us
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/loan-application"
+                  className="btn-sm text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 ml-3"
+                >
                   Apply For Loan
                 </Link>
               </li>
@@ -37,9 +51,8 @@ export default function Header() {
           </nav>
 
           <MobileMenu />
-
         </div>
       </div>
     </header>
-  )
+  );
 }
