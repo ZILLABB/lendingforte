@@ -1,6 +1,8 @@
 // import VideoThumb from '@/public/images/hero-image-01.jpg'
 // import ModalVideo from '@/components/modal-video'
 
+import Link from "next/link";
+
 export default function Hero() {
   return (
     <section>
@@ -22,12 +24,12 @@ export default function Hero() {
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <a
+                <Link 
                   className="btn text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 w-full mb-4 sm:w-auto sm:mb-0"
-                  href="#0"
+                  href="/loan-application"
                 >
                   Apply Now
-                </a>
+                </Link>
               </div>
               <div data-aos="fade-up" data-aos-delay="600">
                 <a
