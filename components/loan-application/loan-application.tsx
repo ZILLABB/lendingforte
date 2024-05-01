@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 export default function LoanApplicationPage() {
@@ -31,10 +34,29 @@ export default function LoanApplicationPage() {
     e.preventDefault();
     // Here you can add your logic to handle form submission, such as sending data to a backend server
     console.log("Form submitted:", formData);
+    emailjs
+      .send(
+        "service_aug4hyu",
+        "template_e9tvy3f",
+        formData,
+        "mRm23xSD-WMIu8ZDK"
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        toast.success("Your loan application has been submitted successfully!", {
+          theme: "colored",
+        });
+      })
+      .catch(() =>
+        toast.error("Something went wrong! Please try again later.", {
+          theme: "colored",
+        })
+      );
   };
 
   return (
     <div className="container mx-auto py-12 pt-24 px-4">
+      <ToastContainer />
       <div className="max-w-3xl mx-auto">
         <h1 className="text-3xl font-bold text-center text-green-600 mb-6">Loan Application</h1>
         <p className=" mb-6 text-center">

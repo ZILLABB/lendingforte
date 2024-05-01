@@ -28,7 +28,7 @@ const AboutUsPage = () => {
             transparency. Our mission is simple: to provide innovative loan
             solutions that empower individuals and businesses to thrive.
           </p>
-          <div className="flex gap-6 ">
+          <div className="lg:flex gap-6 ">
             <img
               className="rounded-lg h-[400px] "
               src="../images/lendingforte/vecteezy_financial-loan-calculator-or-lending-for-car-and-home-loan_6453650.JPG"

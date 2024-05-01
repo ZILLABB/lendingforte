@@ -1,6 +1,41 @@
+'use client'
+
+import { useState } from "react";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function Newsletter() {
+  const [email, setEmail] = useState("");
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const data = {
+      email: email
+    }
+    console.log("Form submitted:", data);
+    emailjs
+      .send(
+        "service_aug4hyu",
+        "template_e9tvy3f",
+        data,
+        "mRm23xSD-WMIu8ZDK"
+      )
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        toast.success("Thanks for subscribing to our newsletter!", {
+          theme: "colored",
+        });
+      })
+      .catch(() =>
+        toast.error("Something went wrong! Please try again later.", {
+          theme: "colored",
+        })
+      );
+  };
+
   return (
     <section>
+      <ToastContainer/>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* CTA box */}
@@ -28,10 +63,10 @@ export default function Newsletter() {
             </div>
 
             {/* CTA form */}
-            <form className="w-full lg:w-1/2">
+            <form onSubmit={handleSubmit} className="w-full lg:w-1/2">
               <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
-                <input type="email" className="w-full appearance-none bg-green-700 border border-green-500 focus:border-green-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-green-400" placeholder="Your best email…" aria-label="Your best email…" />
-                <a className="btn text-green-600 bg-green-100 hover:bg-white shadow" href="#0">Subscribe</a>
+                <input type="email" className="w-full appearance-none bg-green-700 border border-green-500 focus:border-green-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-green-400" placeholder="Your best email…" aria-label="Your best email…" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <button type="submit" className="btn text-green-600 bg-green-100 hover:bg-white shadow" >Subscribe</button>
               </div>
               {/* Success message */}
               {/* <p className="text-center lg:text-left lg:absolute mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
