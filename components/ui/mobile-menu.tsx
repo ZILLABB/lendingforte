@@ -70,23 +70,26 @@ export default function MobileMenu() {
       >
         <ul className="bg-gray-800 px-4 py-2">
           <li>
-            <Link
-              href="/loan-application"
-              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2  text-white bg-green-600 hover:bg-green-700 transition duration-150 ease-in-out"
-            >
-              Apply Now
-            </Link>
+            
             <Link
               href="/contact-us"
-              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2  text-white bg-green-600 hover:bg-green-700 transition duration-150 ease-in-out"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
+              text-green-600 transition duration-150 ease-in-out"
             >
               Contact Us
             </Link>
             <Link
               href="/about-us"
-              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2  text-white bg-green-600 hover:bg-green-700 transition duration-150 ease-in-out"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2   
+              text-green-600 transition duration-150 ease-in-out"
             >
               About Us
+            </Link>
+            <Link
+              href="/loan-application"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2  text-white bg-green-600 hover:bg-green-700 transition duration-150 ease-in-out"
+            >
+              Apply Now
             </Link>
           </li>
         </ul>
