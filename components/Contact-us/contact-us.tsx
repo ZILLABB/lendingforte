@@ -1,18 +1,16 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 
-declare global {
-  interface Window {
-    google: any;
-    initMap: () => void;
-  }
-}
+// declare global {
+//   interface Window {
+//     google: any;
+//     initMap: () => void;
+//   }
+// }
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -20,36 +18,33 @@ export default function ContactPage() {
     message: "",
     email: "",
   });
-useEffect(() => {
-    // Check if window is defined before accessing it
-    if (typeof window !== "undefined") {
-      const mapContainer = document.getElementById("map");
-      if (mapContainer && !mapContainer.hasChildNodes()) {
-        const map = L.map("map").setView([37.6975, -97.3698], 10);
+  // useEffect(() => {
+  //   // Check if window is defined before accessing it
+  //   if (typeof window !== "undefined") {
+  //     const mapContainer = document.getElementById("map");
+  //     if (mapContainer && !mapContainer.hasChildNodes()) {
+  //       const map = L.map("map").setView([37.6975, -97.3698], 10);
 
-        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          attribution: "&copy; OpenStreetMap contributors",
-        }).addTo(map);
+  //       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  //         attribution: "&copy; OpenStreetMap contributors",
+  //       }).addTo(map);
 
-        const address = "6820 W Central Ave, Wichita, KS 67212";
-        const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${address}&format=json&addressdetails=1&limit=1`;
+  //       const address = "6820 W Central Ave, Wichita, KS 67212";
+  //       const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${address}&format=json&addressdetails=1&limit=1`;
 
-        fetch(geocodeUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            const { lat, lon } = data[0];
-            map.setView([lat, lon], 20);
-            L.marker([lat, lon])
-              .addTo(map)
-              .bindPopup(address)
-              .openPopup();
-          })
-          .catch((error) => {
-            console.error("Error fetching geocoding data:", error);
-          });
-      }
-    }
-  }, []);
+  //       fetch(geocodeUrl)
+  //         .then((response) => response.json())
+  //         .then((data) => {
+  //           const { lat, lon } = data[0];
+  //           map.setView([lat, lon], 20);
+  //           L.marker([lat, lon]).addTo(map).bindPopup(address).openPopup();
+  //         })
+  //         .catch((error) => {
+  //           console.error("Error fetching geocoding data:", error);
+  //         });
+  //     }
+  //   }
+  // }, []);
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -179,7 +174,17 @@ useEffect(() => {
               </form>
             </div>
           </div>
-          <div id="map" className="h-96 mt-10 rounded-lg"></div>
+          <iframe
+            className="mt-10 w-full rounded-lg"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.7310160329886!2d-97.4019494849608!3d37.69754072978234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bae0e4865ff5b5%3A0x3a5844e11f3776f7!2s6820%20W%20Central%20Ave%2C%20Wichita%2C%20KS%2067212%2C%20USA!5e0!3m2!1sen!2sbd!4v1648143294763!5m2!1sen!2sbd"
+            width="600"
+            height="450"
+            frameBorder="true"
+            style={{ border: 0 }}
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex={0}
+          ></iframe>
         </div>
       </div>
     </>
