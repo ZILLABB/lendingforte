@@ -10,7 +10,7 @@ export default function Header() {
 
   return (
     <header className="absolute w-full  z-30">
-      <div className="w-full shadow-lg border-b-white border-b mx-auto px-4 sm:px-6">
+      <div className="w-full shadow-lg border-b-gray-700 border-b mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
