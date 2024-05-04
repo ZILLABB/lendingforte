@@ -8,6 +8,7 @@ import Features from "@/components/features";
 import Newsletter from "@/components/newsletter";
 import Zigzag from "@/components/zigzag";
 import Testimonials from "@/components/testimonials";
+import LoanFooter from "@/components/information";
 
 export default function Home() {
   return (

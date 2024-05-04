@@ -38,7 +38,7 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/personal-loan"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Personal Loans
@@ -77,7 +77,15 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/term-of-use"
+                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
+                    >
+                      Term of Use{" "}
+                    </Link>
+                  </li>
+                  <li className="mb-1">
+                    <Link
+                      href="/faq"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       FAQ
