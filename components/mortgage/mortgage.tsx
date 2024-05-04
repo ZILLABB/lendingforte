@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaCheckCircle, FaLock } from "react-icons/fa";
 
-export default function PersonalLoanPage(): JSX.Element {
+export default function MortgagePage(): JSX.Element {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <img
@@ -14,7 +14,7 @@ export default function PersonalLoanPage(): JSX.Element {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
         <div className="max-w-xl mx-auto p-6 bg-black bg-opacity-70 rounded-lg">
           <h1 className="text-3xl font-bold mb-4">
-            A personal loan for your personal needs
+            Turn your house into a dream home today
           </h1>
           <ul className="text-left font-medium text-lg">
             <li className="flex items-center mb-2">
@@ -27,7 +27,7 @@ export default function PersonalLoanPage(): JSX.Element {
             </li>
             <li className="flex items-center mb-2">
               <FaCheckCircle className="mr-2 text-green-500" />
-              36% lower rates as compared to a traditional model.
+              Apply for a loan from $1,000 to $301,000
             </li>
           </ul>
           <Link href="/loan-application">
@@ -41,7 +41,6 @@ export default function PersonalLoanPage(): JSX.Element {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
