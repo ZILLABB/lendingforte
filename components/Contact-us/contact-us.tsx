@@ -20,31 +20,35 @@ export default function ContactPage() {
     message: "",
     email: "",
   });
+useEffect(() => {
+    // Check if window is defined before accessing it
+    if (typeof window !== "undefined") {
+      // Code that relies on window can safely run here
+      const mapContainer = document.getElementById("map");
+      if (mapContainer && !mapContainer.hasChildNodes()) {
+        const map = L.map("map").setView([37.6975, -97.3698], 10);
 
-  useEffect(() => {
-    const mapContainer = document.getElementById("map");
-    if (!mapContainer) return;
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors",
+        }).addTo(map);
 
-    if (!mapContainer.hasChildNodes()) {
-      const map = L.map("map").setView([37.6975, -97.3698], 10);
+        const address = "6820 W Central Ave, Wichita, KS 67212";
+        const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${address}&format=json&addressdetails=1&limit=1`;
 
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
-      }).addTo(map);
-
-      const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=6820+W+Central+Ave,+Wichita,+KS+67212&format=json&addressdetails=1&limit=1`;
-
-      fetch(geocodeUrl)
-        .then((response) => response.json())
-        .then((data) => {
-          const { lat, lon } = data[0];
-          map.setView([lat, lon], 20);
-          L.marker([lat, lon])
-            .addTo(map)
-            .bindPopup("6820 W Central Ave, Wichita, KS 67212")
-            .openPopup();
-        })
-        .catch(console.error);
+        fetch(geocodeUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const { lat, lon } = data[0];
+            map.setView([lat, lon], 20);
+            L.marker([lat, lon])
+              .addTo(map)
+              .bindPopup(address)
+              .openPopup();
+          })
+          .catch((error) => {
+            console.error("Error fetching geocoding data:", error);
+          });
+      }
     }
   }, []);
 
