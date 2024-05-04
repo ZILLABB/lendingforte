@@ -23,7 +23,6 @@ export default function ContactPage() {
 useEffect(() => {
     // Check if window is defined before accessing it
     if (typeof window !== "undefined") {
-      // Code that relies on window can safely run here
       const mapContainer = document.getElementById("map");
       if (mapContainer && !mapContainer.hasChildNodes()) {
         const map = L.map("map").setView([37.6975, -97.3698], 10);
