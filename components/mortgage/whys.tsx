@@ -14,7 +14,7 @@ const WhyChoosemortgage: React.FC = () => {
         your home improvement loan?
       </h1>
       <div className="">
-        <p className="mb-2 text-base text-center px-36">
+        <p className="mb-2 text-base text-center lg:px-36">
           Our online process makes it easy to apply for a home renovation loan.
           Fix a leaky roof, remodel your kitchen, or update your backyard—we're
           here to help make your home a dream home.
@@ -26,12 +26,12 @@ const WhyChoosemortgage: React.FC = () => {
             <FaCalculator className="w-10 h-10 text-green-600  " />
           </div>
 
-          <p className="mb-2 text-xl  font-medium ">
-            Flexible Loan Amounts: <br />
-            <span className="text-base">
+          <p className="mb-2 text-xl text-center  font-medium ">
+            <h1 >Flexible Loan Amounts</h1> 
+            <p className="text-base text-center">
               Choose an amount for a home improvement loan between $1,000 and
               $301,000.
-            </span>
+            </p>
           </p>
         </div>
         <div className="flex flex-col items-center !text-center gap-2">
@@ -39,11 +39,11 @@ const WhyChoosemortgage: React.FC = () => {
             <FaDollarSign className="w-10 h-10 text-green-600  " />
           </div>
           <p className="mb-2 text-xl  font-medium">
-            Term Period Options: <br />
-            <span className="text-base">
+            <h1>Term Period Options</h1>
+            <p className="text-base">
               Your home, your term. Decide between a 3 or 5 year term for your
               home improvement loan.
-            </span>
+            </p>
           </p>
         </div>
         <div className="flex flex-col items-center !text-center gap-2">
@@ -51,11 +51,11 @@ const WhyChoosemortgage: React.FC = () => {
             <FaCalendarDay className="w-10 h-10 text-green-600  " />
           </div>
           <p className="mb-2 text-xl  font-medium">
-            No Collateral Required: <br />
-            <span className="text-base">
+            <h1>No Collateral Required</h1>
+            <p className="text-base">
               Get funds without putting collateral down with an unsecured home
               improvement loan.
-            </span>
+            </p>
           </p>
         </div>
       </div>

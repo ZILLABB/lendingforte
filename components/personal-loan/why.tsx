@@ -25,19 +25,19 @@ const WhyChooseLendingFortePage: React.FC = () => {
             <FaCalculator className="w-10 h-10 text-green-600  " />
           </div>
 
-          <p className="mb-2 text-xl  font-medium ">
-            Flexible Loan Amounts: <br />
+          <p className="mb-2 text-xl text-center  font-medium ">
+             <h1>Flexible Loan Amounts</h1>
             <span className="text-base">
               You can get a personal loan from $1,000 to $300,000.
             </span>
           </p>
         </div>
-        <div className="flex flex-col items-center !text-center gap-2">
+        <div className="flex flex-col text-center items-center !text-center gap-2">
           <div className="bg-gray-200 mb-4 w-20 h-20 flex justify-center items-center rounded-full p-2 ">
             <FaDollarSign className="w-10 h-10 text-green-600  " />
           </div>
           <p className="mb-2 text-xl  font-medium">
-            Fixed Rates and Terms: <br />
+             <h1>Fixed Rates and Terms</h1>
             <span className="text-base">
               Choose between personal loans in 3 or 5 year terms, with fixed
               rates of 4.8% - 31.99% APR.
@@ -49,7 +49,7 @@ const WhyChooseLendingFortePage: React.FC = () => {
             <FaCalendarDay className="w-10 h-10 text-green-600  " />
           </div>
           <p className="mb-2 text-xl  font-medium">
-            No Prepayment Fees: <br />
+             <h1>No Prepayment Fees</h1>
             <span className="text-base">
               You can prepay your loan at any time with no fee or penalty.
             </span>
