@@ -9,8 +9,8 @@ export default function Header() {
   const [showLoanDropdown, setShowLoanDropdown] = useState(false); // State to manage loan dropdown visibility
 
   return (
-    <header className="absolute w-full z-30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <header className="absolute w-full  z-30">
+      <div className="w-full shadow-lg border-b-white border-b mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">

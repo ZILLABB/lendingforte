@@ -72,7 +72,7 @@ export default function ContactPage() {
       <ToastContainer />
       <div className="container mx-auto py-12 sm:py-16 px-4">
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl font-bold text-green-600 text-center mb-6">
+          <h1 className="text-3xl font-bold lg:text-5xl mt-10 text-green-600 text-center mb-6">
             Contact Us
           </h1>
           <div className="lg:grid lg:grid-cols-2">
@@ -176,7 +176,7 @@ export default function ContactPage() {
           </div>
           <iframe
             className="mt-10 w-full rounded-lg"
-             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.7310160329886!2d-97.4019494849608!3d37.69754072978234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bae0e4865ff5b5%3A0x3a5844e11f3776f7!2s6820%20W%20Central%20Ave%2C%20Wichita%2C%20KS%2067212%2C%20USA!5e0!3m2!1sen!2sbd!4v1648143294763!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.7310160329886!2d-97.4019494849608!3d37.69754072978234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87bae0e4865ff5b5%3A0x3a5844e11f3776f7!2s6820%20W%20Central%20Ave%2C%20Wichita%2C%20KS%2067212%2C%20USA!5e0!3m2!1sen!2sbd!4v1648143294763!5m2!1sen!2sbd"
             width="600"
             height="450"
             frameBorder="true"
