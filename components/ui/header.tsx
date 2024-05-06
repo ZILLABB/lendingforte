@@ -31,9 +31,8 @@ export default function Header() {
               contact@lendingforte.com
             </a>
           </li>
-          <li></li>
         </ul>
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-14">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
