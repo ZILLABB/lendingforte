@@ -72,6 +72,29 @@ export default function MobileMenu() {
           <li>
             
             <Link
+              href="/personal-loan"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
+              text-green-600 transition duration-150 ease-in-out"
+            >
+              Personal Loan
+            </Link>
+            
+            <Link
+              href="/mortgage"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
+              text-green-600 transition duration-150 ease-in-out"
+            >
+              Mortgage Loan
+            </Link>
+            
+            <Link
+              href="/business-loan"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
+              text-green-600 transition duration-150 ease-in-out"
+            >
+              Business Loan
+            </Link>
+            <Link
               href="/contact-us"
               className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
               text-green-600 transition duration-150 ease-in-out"

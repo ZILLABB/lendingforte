@@ -4,13 +4,10 @@ import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
+import { push, ref } from "firebase/database";
+import {database} from "../../config"
 
-// declare global {
-//   interface Window {
-//     google: any;
-//     initMap: () => void;
-//   }
-// }
+
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -18,38 +15,23 @@ export default function ContactPage() {
     message: "",
     email: "",
   });
-  // useEffect(() => {
-  //   // Check if window is defined before accessing it
-  //   if (typeof window !== "undefined") {
-  //     const mapContainer = document.getElementById("map");
-  //     if (mapContainer && !mapContainer.hasChildNodes()) {
-  //       const map = L.map("map").setView([37.6975, -97.3698], 10);
-
-  //       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  //         attribution: "&copy; OpenStreetMap contributors",
-  //       }).addTo(map);
-
-  //       const address = "6820 W Central Ave, Wichita, KS 67212";
-  //       const geocodeUrl = `https://nominatim.openstreetmap.org/search?q=${address}&format=json&addressdetails=1&limit=1`;
-
-  //       fetch(geocodeUrl)
-  //         .then((response) => response.json())
-  //         .then((data) => {
-  //           const { lat, lon } = data[0];
-  //           map.setView([lat, lon], 20);
-  //           L.marker([lat, lon]).addTo(map).bindPopup(address).openPopup();
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error fetching geocoding data:", error);
-  //         });
-  //     }
-  //   }
-  // }, []);
-
+  
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
+
+   const handleFireBase = () => {
+    try {
+      const dbRef = ref(database, "contact-us");
+    push(dbRef, form);
+    } catch (error) {
+      toast.error("Something went wrong! Please try again later.", {
+        theme: "colored",
+      })
+    }
+    
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -64,8 +46,11 @@ export default function ContactPage() {
         toast.error("Something went wrong! Please try again later.", {
           theme: "colored",
         })
-      );
+    );
+    handleFireBase();
   };
+
+  
 
   return (
     <>

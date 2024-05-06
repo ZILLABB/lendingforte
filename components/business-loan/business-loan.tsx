@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { FaCheckCircle, FaLock } from "react-icons/fa";
 
-export default function PersonalLoanPage(): JSX.Element {
+export default function BusinessLoanPage(): JSX.Element {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       <img
@@ -14,24 +14,23 @@ export default function PersonalLoanPage(): JSX.Element {
       <div className="absolute top-0 right-0 w-full mt-4 transform text-center text-white z-10">
         <div className=" mx-auto p-3 mt-24 py-10  bg-black bg-opacity-70 rounded-lg">
           <h1 className="text-3xl font-bold mb-4">
-            A personal loan for your personal needs
+            A Business loan for your business needs
           </h1>
           <div className="flex justify-center items-center font-medium text-lg">
-
-          <ul >
-            <li className="flex items-center mb-2">
-              <FaCheckCircle className="mr-2 text-green-500" />
-              Check your rate in 5 minutes.
-            </li>
-            <li className="flex items-center mb-2">
-              <FaCheckCircle className="mr-2 text-green-500" />
-              Get funded in as fast as 1 business day.
-            </li>
-            <li className="flex items-center mb-2">
-              <FaCheckCircle className="mr-2 text-green-500" />
-              36% lower rates as compared to a traditional model.
-            </li>
-          </ul>
+            <ul>
+              <li className="flex items-center mb-2">
+                <FaCheckCircle className="mr-2 text-green-500" />
+                Check your rate in 5 minutes.
+              </li>
+              <li className="flex items-center mb-2">
+                <FaCheckCircle className="mr-2 text-green-500" />
+                Get funded in as fast as 1 business day.
+              </li>
+              <li className="flex items-center mb-2">
+                <FaCheckCircle className="mr-2 text-green-500" />
+                Apply for a loan from $1,000 to $100,000,000
+              </li>
+            </ul>
           </div>
           <Link href="/loan-application">
             <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg mt-4 mb-4">
@@ -44,7 +43,6 @@ export default function PersonalLoanPage(): JSX.Element {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

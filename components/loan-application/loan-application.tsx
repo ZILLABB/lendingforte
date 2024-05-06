@@ -4,6 +4,8 @@ import { useState } from 'react'
 import emailjs from "emailjs-com";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { push, ref } from "firebase/database";
+import {database} from "../../config"
 
 
 export default function LoanApplicationPage() {
@@ -30,10 +32,7 @@ export default function LoanApplicationPage() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    // Here you can add your logic to handle form submission, such as sending data to a backend server
-    console.log("Form submitted:", formData);
+  const handleEmailJs=()=>{
     emailjs
       .send(
         "service_aug4hyu",
@@ -52,6 +51,24 @@ export default function LoanApplicationPage() {
           theme: "colored",
         })
       );
+  }
+
+  const handleFireBase = () => {
+    try {
+      const dbRef = ref(database, "loan-application");
+    push(dbRef, formData);
+    } catch (error) {
+      toast.error("Something went wrong! Please try again later.", {
+        theme: "colored",
+      })
+    }
+    
+  }
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    handleEmailJs();
+    handleFireBase();
+    
   };
 
   return (
