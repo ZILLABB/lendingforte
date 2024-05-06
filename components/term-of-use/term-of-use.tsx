@@ -4,9 +4,9 @@ import Head from "next/head";
 
 const TermsOfUse = () => {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
+    <div className="max-w-5xl mx-auto mt-20 px-4 py-8">
       <Head>
-        <title>Terms of Use - Lending Forte</title>
+        <title>Terms of Use - Lending Forte </title>
       </Head>
       <header className="text-center mb-8">
         <h1 className="text-3xl font-bold">Terms of Use</h1>
@@ -21,28 +21,32 @@ const TermsOfUse = () => {
         <section className="mt-8">
           <h2 className="text-lg font-semibold">1. Introduction</h2>
           <p>
-            You are visiting a website owned and operated by Lending Forte, Inc.
-            Lending Forte, Inc. and its subsidiaries (collectively, “Lending
-            Forte, Inc.”, “us”, “we”, or “our”) offer this Website to you
-            conditioned upon your acceptance of all terms, conditions, policies,
-            and notices stated herein. These Terms and Conditions (hereafter
-            “Terms”) apply to Lending Forte and all websites owned and operated
-            by Lending Forte, Inc. on which these Terms are displayed (referred
-            to hereafter as Website(s) or Site(s), whether individually or
-            collectively) as well as Lending Forte, Inc. affiliates. This
-            Agreement also applies to your use of any goods, facilities, or
-            services offered through the Websites (collectively “Services”),
-            regardless of how they are accessed. By accessing, browsing, or
-            using the Websites, you acknowledge that you understand, accept, and
-            agree to be bound by this Agreement, as well as our Privacy Policy,
-            which is incorporated into this Agreement by reference. You agree
-            that, to the fullest extent required by the law of any state, that
-            you have been provided with, have received, and are agreeing to all
-            disclosure and consent requirements. Certain Services may include
-            additional terms; by agreeing to proceed with any such Services, you
-            acknowledge that you have read, understand, and agree to be bound by
-            any additional terms displayed or referenced that apply to that
-            Service.
+            You are visiting a website owned and operated by{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc.
+            <span className="text-green-600">Lending Forte </span> , Inc. and
+            its subsidiaries (collectively, “Lending Forte, Inc.”, “us”, “we”,
+            or “our”) offer this Website to you conditioned upon your acceptance
+            of all terms, conditions, policies, and notices stated herein. These
+            Terms and Conditions (hereafter “Terms”) apply to{" "}
+            <span className="text-green-600">Lending Forte </span> and all
+            websites owned and operated by{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. on
+            which these Terms are displayed (referred to hereafter as Website(s)
+            or Site(s), whether individually or collectively) as well as{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc.
+            affiliates. This Agreement also applies to your use of any goods,
+            facilities, or services offered through the Websites (collectively
+            “Services”), regardless of how they are accessed. By accessing,
+            browsing, or using the Websites, you acknowledge that you
+            understand, accept, and agree to be bound by this Agreement, as well
+            as our Privacy Policy, which is incorporated into this Agreement by
+            reference. You agree that, to the fullest extent required by the law
+            of any state, that you have been provided with, have received, and
+            are agreeing to all disclosure and consent requirements. Certain
+            Services may include additional terms; by agreeing to proceed with
+            any such Services, you acknowledge that you have read, understand,
+            and agree to be bound by any additional terms displayed or
+            referenced that apply to that Service.
           </p>
         </section>
         <section className="mt-8">
@@ -107,8 +111,8 @@ const TermsOfUse = () => {
             Services, you represent and warrant that you are at least 18 years
             of age and are a legal resident of the United States. Not all
             Services are available in all geographic areas. Your eligibility for
-            particular Services is subject to final determination by NetPay
-            Advance, Inc., its affiliates, and or its lending partners.
+            particular Services is subject to final determination by Lending
+            Forte, Inc., its affiliates, and or its lending partners.
           </p>
         </section>
         <section className="mt-8">
@@ -127,8 +131,8 @@ const TermsOfUse = () => {
             consumers with whom they would like to connect with. The Network
             Partners also specify the prices they will pay us for the
             opportunity to present an offer to a consumer that meets the Network
-            Partner’s criteria. When you submit your loan request, NetPay
-            Advance, Inc. transmits the information you entered in the loan
+            Partner’s criteria. When you submit your loan request, Lending
+            Forte, Inc. transmits the information you entered in the loan
             request form through our network in real time, presenting the
             information to Network Partners electronically until one Network
             Partner, often the highest bidding, accepts your loan request. You
@@ -140,8 +144,9 @@ const TermsOfUse = () => {
             information with third-party marketers and service providers that
             may contact you by email or text message/SMS (please note data and
             messaging rates may apply) to offer you loans or other products that
-            may be of interest to you. We Are Not a Lender. Lending Forte, Inc.
-            is not a lender, financial institution, loan broker or an agent of a
+            may be of interest to you. We Are Not a Lender.{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. is not
+            a lender, financial institution, loan broker or an agent of a
             lender, financial institution or loan broker. This Website does not
             constitute an offer or solicitation to lend. This website collects
             personal information provided by you and uses that information to
@@ -167,31 +172,34 @@ const TermsOfUse = () => {
             most closely fits your needs and financial situation. We do not
             guarantee that the loan terms or rates offered and made available by
             lenders are the best terms or lowest rates available in the market.
-            Request for Other Products and Services. Lending Forte, Inc. may
+            Request for Other Products and Services.{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. may
             also allow you to request products or services other than loans that
             are advertised on this Website based on your interest. These
             non-loan related products or services may include debt consolidation
             or settlement, auto title loans, health insurance products, credit
             card products and/or any products or services that may be of
-            interest to you. Lending Forte, Inc. will not transmit your
-            information to these non-loan related products or services without
-            first obtaining your express consent to do so and based on the
-            qualifying questions you answer throughout your loan request form.
-            Not Professional Advice. Lending Forte, Inc. and the products and
-            services it promotes are not a substitute for professional advice.
-            We provide our Services solely for your convenience, and such
-            Services (i) are not intended as a substitute for professional
-            advice; (ii) should not be construed as the provision of advice or
-            recommendations; and (iii) should not be relied upon as the basis
-            for any financial decision or action. We are not responsible for the
-            accuracy or reliability of any Services. It is your responsibility
-            to evaluate the accuracy, completeness or usefulness of any Services
-            available through this Website. The relationship between you and us
-            is not a professional or similar relationship. We always recommend
-            you seek the advice of a qualified professional with respect to any
-            questions you may have, and to never disregard professional advice
-            or delay in seeking it because of something you have read on this
-            Website.
+            interest to you.{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. will
+            not transmit your information to these non-loan related products or
+            services without first obtaining your express consent to do so and
+            based on the qualifying questions you answer throughout your loan
+            request form. Not Professional Advice.{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. and
+            the products and services it promotes are not a substitute for
+            professional advice. We provide our Services solely for your
+            convenience, and such Services (i) are not intended as a substitute
+            for professional advice; (ii) should not be construed as the
+            provision of advice or recommendations; and (iii) should not be
+            relied upon as the basis for any financial decision or action. We
+            are not responsible for the accuracy or reliability of any Services.
+            It is your responsibility to evaluate the accuracy, completeness or
+            usefulness of any Services available through this Website. The
+            relationship between you and us is not a professional or similar
+            relationship. We always recommend you seek the advice of a qualified
+            professional with respect to any questions you may have, and to
+            never disregard professional advice or delay in seeking it because
+            of something you have read on this Website.
           </p>
         </section>
         <section className="mt-8">
@@ -213,21 +221,24 @@ const TermsOfUse = () => {
             or take a loan with them, and whether or not you are qualified for
             the goods or services offered. You agree to notify any particular
             Network Partner directly if you no longer want to receive
-            communications from them. In addition, Lending Forte, Inc. and its
-            Network Partners may share the information you provide to them with
-            state licensing authorities and government regulators. Pursuant to
-            contractual relationships between Network Partners and NetPay
-            Advance, Inc., Lending Forte, Inc. may receive information from the
-            Network Partner regarding the status of your loan request, but not
-            limited to, the amount or disposition of your loan. Information
-            specific to the Network Partner you may be connected with will be
-            found in the Network Partner’s specific Privacy Policy. Please note
-            that you are providing your express written consent for NetPay
-            Advance, Inc. and the selected Network Partners to share this
-            personally identifiable information for the following purposes: to
-            provide the services and products that you seek, litigation,
-            regulatory request(s), law enforcement requests, internal analytics,
-            and/or for marketing purposes.
+            communications from them. In addition,{" "}
+            <span className="text-green-600">Lending Forte </span> , Inc. and
+            its Network Partners may share the information you provide to them
+            with state licensing authorities and government regulators. Pursuant
+            to contractual relationships between Network Partners and Lending
+            Forte, Inc., <span className="text-green-600">Lending Forte </span>{" "}
+            , Inc. may receive information from the Network Partner regarding
+            the status of your loan request, but not limited to, the amount or
+            disposition of your loan. Information specific to the Network
+            Partner you may be connected with will be found in the Network
+            Partner’s specific Privacy Policy. Please note that you are
+            providing your express written consent for{" "}
+            <span className="text-green-600">Lending Forte</span> , Inc. and the
+            selected Network Partners to share this personally identifiable
+            information for the following purposes: to provide the services and
+            products that you seek, litigation, regulatory request(s), law
+            enforcement requests, internal analytics, and/or for marketing
+            purposes.
           </p>
         </section>
       </main>
@@ -235,8 +246,9 @@ const TermsOfUse = () => {
         <p>
           For questions or concerns, please contact us at{" "}
           <a
-            href="mailto:support@lendingforte.com"
-            className="text-blue-500 underline"
+            target=""
+            href="mailto: support@lendingforte.com"
+            className="text-green-500 "
           >
             support@lendingforte.com
           </a>

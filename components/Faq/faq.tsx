@@ -13,7 +13,7 @@ const Faq = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 mt-40 py-8">
+    <div className="container mx-auto px-4 text-gray-500 mt-40 py-8">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <h1 className="text-3xl font-bold text-green-600">

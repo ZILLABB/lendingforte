@@ -5,9 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiMapPin } from "react-icons/fi";
 import { push, ref } from "firebase/database";
-import {database} from "../../config"
-
-
+import { database } from "../../config";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -15,23 +13,22 @@ export default function ContactPage() {
     message: "",
     email: "",
   });
-  
+
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-   const handleFireBase = () => {
+  const handleFireBase = () => {
     try {
       const dbRef = ref(database, "contact-us");
-    push(dbRef, form);
+      push(dbRef, form);
     } catch (error) {
       toast.error("Something went wrong! Please try again later.", {
         theme: "colored",
-      })
+      });
     }
-    
-  }
+  };
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -46,11 +43,9 @@ export default function ContactPage() {
         toast.error("Something went wrong! Please try again later.", {
           theme: "colored",
         })
-    );
+      );
     handleFireBase();
   };
-
-  
 
   return (
     <>
@@ -67,17 +62,22 @@ export default function ContactPage() {
                 <div className="bg-green-600 rounded-full w-8 h-8 p-2 flex items-center justify-center">
                   <FiMapPin className=" " />
                 </div>
-                <p>Physical Address: 6820 W Central Ave, Wichita, KS 67212</p>
+                <p className="text-xl text-gray-500">
+                  Physical Address: <br />
+                  <a className="text-base text-green-400 " href="">
+                    6820 W Central Ave, Wichita, KS 67212
+                  </a>
+                </p>
               </div>
               <div className="flex items-center mb-2 gap-2">
                 <div className="bg-green-600 rounded-full p-2 w-8 h-8 flex items-center justify-center">
                   <FiPhone className="" />
                 </div>
                 <div>
-                  <p className="text-2xl">
+                  <p className="text-xl text-gray-500 ">
                     Our Phone Number: <br />
                     <a
-                      className="text-xl text-green-400 "
+                      className="text-base text-green-400 "
                       href="tel:+13159498539"
                     >
                       +1-(315)-949-8539
@@ -89,13 +89,13 @@ export default function ContactPage() {
                 <div className="bg-green-600 rounded-full w-8 h-8 p-2 flex items-center justify-center">
                   <FiMail className="" />
                 </div>
-                <p className="text-2xl">
+                <p className="text-xl text-gray-500 ">
                   Our Contact Mail: <br />
                   <a
-                    className="text-xl text-green-400 "
+                    className="text-base text-green-400 "
                     href="mailto:info@lendingforte.com"
                   >
-                    info@lendingforte.com
+                    contact@lendingforte.com
                   </a>
                 </p>{" "}
               </div>

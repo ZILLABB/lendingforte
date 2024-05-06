@@ -28,6 +28,27 @@ export default function Footer() {
                 Lending Forte is dedicated to providing straightforward and
                 accessible loan solutions to meet your financial needs.
               </div>
+              <div className="mt-5 ">
+                <p>
+                  <a
+                    className="text-gray-400  hover:text-green-500 transition duration-150 ease-in-out"
+                    href=" tel: +1-(315)-949-8539"
+                  >
+                    +1-(315)-949-8539
+                  </a>
+                </p>
+                <p className="text-gray-400 mt-3">
+                  <a
+                    className="text-gray-400  hover:text-green-500 transition duration-150 ease-in-out"
+                    href=" mailto: info@lendingforte.com "
+                  >
+                    info@lendingforte.com
+                  </a>
+                </p>
+                <p className="text-gray-400 mt-3">
+                  6820 W Central Ave 6820 W Central Ave, Wichita, KS 67212, USA
+                </p>
+              </div>
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}

@@ -3,7 +3,7 @@ import Head from "next/head";
 const AboutUsPage = () => {
   return (
     <div>
-      <section className="bg-white font-sans leading-8 font-normal p-10 text-gray-900">
+      <section className=" mt-10 leading-8 font-normal p-10 text-gray-500">
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-3xl font-inter text-green-600 text-center font-bold mb-6">
             About Us
@@ -34,7 +34,7 @@ const AboutUsPage = () => {
               src="../images/lendingforte/vecteezy_financial-loan-calculator-or-lending-for-car-and-home-loan_6453650.JPG"
               alt=""
             />
-            <p className="mb-2 leading-8 ">
+            <p className="mb-2 leading-7 ">
               What sets us apart is our commitment to personalized service and
               tailored lending options. We take the time to understand our
               clients' unique needs and circumstances, ensuring that we offer

@@ -4,6 +4,7 @@ import { useState } from "react"; // Import useState hook
 
 import MobileMenu from "./mobile-menu";
 import Link from "next/link";
+import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Header() {
   const [showLoanDropdown, setShowLoanDropdown] = useState(false); // State to manage loan dropdown visibility
@@ -11,6 +12,27 @@ export default function Header() {
   return (
     <header className="absolute w-full  z-30">
       <div className="w-full shadow-lg border-b-gray-700 border-b mx-auto px-4 sm:px-6">
+        <ul className="flex justify-end  gap-4 items-end">
+          <li className="flex mt-2 hover:text-green-500 items-center gap-2">
+            <FaPhone />
+            <a
+              className="text-gray-500 hover:text-green-600"
+              href=" tel: +1-(315)-949-8539"
+            >
+              +1-(315)-949-8539
+            </a>
+          </li>
+          <li className="flex items-center hover:text-green-500 mt-2 gap-2">
+            <FaEnvelope  />
+            <a
+              className="text-gray-500 hover:text-green-500 "
+              href="mailto: contact@lendingforte.com "
+            >
+              contact@lendingforte.com
+            </a>
+          </li>
+          <li></li>
+        </ul>
         <div className="flex items-center justify-between h-20">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
@@ -26,8 +48,10 @@ export default function Header() {
           </div>
 
           {/* Desktop navigation */}
+
           <nav className="hidden md:flex md:grow">
             {/* Desktop sign in links */}
+
             <ul className="flex grow justify-end flex-wrap items-center">
               <li className="relative">
                 {/* Loans title */}
