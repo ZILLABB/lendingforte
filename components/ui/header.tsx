@@ -16,7 +16,7 @@ export default function Header() {
           <div className="flex mt-2 hover:text-green-500 items-center gap-2">
             <FaPhone className="w-2 md:w-5 text-green-500 "/>
             <a
-              className="text-gray-500 text-[8px] md:text-sm hover:text-green-600"
+              className="text-gray-500 text-[10px] md:text-sm hover:text-green-600"
               href=" tel: +1-(315)-949-8539"
             >
               +1-(315)-949-8539
@@ -25,7 +25,7 @@ export default function Header() {
           <div className="flex items-center hover:text-green-500 mt-2 gap-2">
             <FaEnvelope className="w-2 md:w-5 text-green-500"  />
             <a
-              className="text-gray-500 text-[8px] md:text-sm  hover:text-green-500 "
+              className="text-gray-500 text-[10px] md:text-sm  hover:text-green-500 "
               href="mailto: contact@lendingforte.com "
             >
               contact@lendingforte.com

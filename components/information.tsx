@@ -2,7 +2,7 @@ import React from "react";
 
 const LoanFooter = () => {
   return (
-    <div className="loan-footer text-start text-gray-500  border-t p-8">
+    <div className="loan-footer text-start text-gray-500  border-t p-4">
       <p className="mb-4">
         <span className="text-green-600">Lending Forte </span> is a
         state-licensed direct lender. See our rates and terms page for more

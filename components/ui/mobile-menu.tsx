@@ -70,7 +70,13 @@ export default function MobileMenu() {
       >
         <ul className="bg-gray-800 px-4 py-2">
           <li>
-            
+            <Link
+              href="/"
+              className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
+              text-green-600 transition duration-150 ease-in-out"
+            >
+              Home
+            </Link>
             <Link
               href="/personal-loan"
               className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
@@ -78,7 +84,7 @@ export default function MobileMenu() {
             >
               Personal Loan
             </Link>
-            
+
             <Link
               href="/mortgage"
               className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    
@@ -86,7 +92,7 @@ export default function MobileMenu() {
             >
               Mortgage Loan
             </Link>
-            
+
             <Link
               href="/business-loan"
               className="font-medium w-full rounded-lg inline-flex items-center justify-center border border-transparent px-4 py-2 my-2    

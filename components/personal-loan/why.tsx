@@ -8,13 +8,13 @@ import {
 
 const WhyChooseLendingFortePage: React.FC = () => {
   return (
-    <div className=" p-20 text-white">
+    <div className=" p-4 text-center text-white">
       <h1 className="text-3xl font-bold mb-4">
         Why choose <span className="text-green-600">Lending Forte</span> for
         your online personal loan?
       </h1>
       <div className="">
-        <p className="mb-2 text-base">
+        <p className="mb-2 text-center text-base">
           You're more than your credit score — Our model looks at factors such
           as your education and employment to help you get a rate you deserve.
         </p>

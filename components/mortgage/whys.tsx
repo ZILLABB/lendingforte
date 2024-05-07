@@ -8,7 +8,7 @@ import {
 
 const WhyChoosemortgage: React.FC = () => {
   return (
-    <div className=" p-20 text-white">
+    <div className=" p-4 text-center text-white">
       <h1 className="text-3xl text-center font-bold mb-4">
         Why choose <span className="text-green-600">Lending Forte</span> for
         your home improvement loan?
