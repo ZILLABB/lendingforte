@@ -143,7 +143,7 @@ export default function Footer() {
           {/* Bottom area */}
           <div className="md:flex md:items-center md:justify-between">
             {/* Social links */}
-            <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
+            {/* <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
               <li>
                 <Link
                   href="/"
@@ -223,7 +223,7 @@ export default function Footer() {
                 </Link>
               </li>
               {/* Add more social links here */}
-            </ul>
+            {/* </ul> } */}
 
             {/* Copyrights note */}
             <div className="text-gray-400 text-sm mr-4">

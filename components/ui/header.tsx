@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="absolute w-full  z-30">
       <div className="w-full shadow-lg border-b-gray-700 border-b mx-auto px-4 sm:px-6">
-        <ul className="flex justify-end  gap-4 items-end">
+        <ul className="md:flex md:justify-between flex flex-col justify-end items-end  gap-2 ">
           <li className="flex mt-2 hover:text-green-500 items-center gap-2">
             <FaPhone />
             <a
