@@ -12,20 +12,20 @@ export default function Header() {
   return (
     <header className="absolute w-full  z-30">
       <div className="w-full shadow-lg border-b-gray-700 border-b mx-auto px-4 sm:px-6">
-        <div className=" lg:flex justify-end gap-2 mb-2 ">
+        <div className="flex justify-end gap-2 mb-2 ">
           <div className="flex mt-2 hover:text-green-500 items-center gap-2">
-            <FaPhone />
+            <FaPhone className="w-2 md:w-5 text-green-500 "/>
             <a
-              className="text-gray-500 text-sm hover:text-green-600"
+              className="text-gray-500 text-[8px] md:text-sm hover:text-green-600"
               href=" tel: +1-(315)-949-8539"
             >
               +1-(315)-949-8539
             </a>
           </div>
           <div className="flex items-center hover:text-green-500 mt-2 gap-2">
-            <FaEnvelope  />
+            <FaEnvelope className="w-2 md:w-5 text-green-500"  />
             <a
-              className="text-gray-500 text-sm  hover:text-green-500 "
+              className="text-gray-500 text-[8px] md:text-sm  hover:text-green-500 "
               href="mailto: contact@lendingforte.com "
             >
               contact@lendingforte.com
