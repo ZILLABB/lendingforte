@@ -16,7 +16,7 @@ export default function Header() {
           <li className="flex mt-2 hover:text-green-500 items-center gap-2">
             <FaPhone />
             <a
-              className="text-gray-500 hover:text-green-600"
+              className="text-gray-500 text-sm hover:text-green-600"
               href=" tel: +1-(315)-949-8539"
             >
               +1-(315)-949-8539
@@ -25,7 +25,7 @@ export default function Header() {
           <li className="flex items-center hover:text-green-500 mt-2 gap-2">
             <FaEnvelope  />
             <a
-              className="text-gray-500 hover:text-green-500 "
+              className="text-gray-500 text-sm  hover:text-green-500 "
               href="mailto: contact@lendingforte.com "
             >
               contact@lendingforte.com
