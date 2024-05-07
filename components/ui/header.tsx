@@ -12,8 +12,8 @@ export default function Header() {
   return (
     <header className="absolute w-full  z-30">
       <div className="w-full shadow-lg border-b-gray-700 border-b mx-auto px-4 sm:px-6">
-        <ul className="md:flex md:justify-between flex flex-col justify-end items-end  gap-2 ">
-          <li className="flex mt-2 hover:text-green-500 items-center gap-2">
+        <div className=" lg:flex justify-end gap-2 mb-2 ">
+          <div className="flex mt-2 hover:text-green-500 items-center gap-2">
             <FaPhone />
             <a
               className="text-gray-500 text-sm hover:text-green-600"
@@ -21,8 +21,8 @@ export default function Header() {
             >
               +1-(315)-949-8539
             </a>
-          </li>
-          <li className="flex items-center hover:text-green-500 mt-2 gap-2">
+          </div>
+          <div className="flex items-center hover:text-green-500 mt-2 gap-2">
             <FaEnvelope  />
             <a
               className="text-gray-500 text-sm  hover:text-green-500 "
@@ -30,8 +30,8 @@ export default function Header() {
             >
               contact@lendingforte.com
             </a>
-          </li>
-        </ul>
+          </div>
+        </div>
         <div className="flex items-center justify-between h-14">
           {/* Site branding */}
           <div className="shrink-0 mr-4">
