@@ -90,14 +90,6 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Loan Calculator
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
                       href="/term-of-use"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >

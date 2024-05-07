@@ -8,7 +8,7 @@ export default function MortgagePage(): JSX.Element {
       <img
         src="/images/lendingforte/vecteezy_real-estate-agent-giving-money-to-home-buyer_1227232.jpg"
         alt="Background Image"
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover opacity-10"
       />
 
       <div className="absolute top-0 left-0 mt-8 transform w-full  text-center text-white z-10">

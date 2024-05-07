@@ -93,9 +93,23 @@ export default function ContactPage() {
                   Our Contact Mail: <br />
                   <a
                     className="text-base text-green-400 "
-                    href="mailto:info@lendingforte.com"
+                    href="mailto:contact@lendingforte.com"
                   >
                     contact@lendingforte.com
+                  </a>
+                  <br />
+                  <a
+                    className="text-base text-green-400 "
+                    href="mailto:info@lendingforte.com"
+                  >
+                    info@lendingforte.com
+                  </a>
+                  <br />
+                  <a
+                    className="text-base text-green-400 "
+                    href="mailto:support@lendingforte.com"
+                  >
+                    support@lendingforte.com
                   </a>
                 </p>{" "}
               </div>
