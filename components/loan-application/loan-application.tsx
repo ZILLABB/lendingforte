@@ -25,6 +25,13 @@ export default function LoanApplicationPage() {
     existingLoan: false,
     agreement: false,
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [applicationNumber, setApplicationNumber] = useState("");
+
+  const generateApplicationNumber = () => {
+    const randomNumber = Math.floor(100000000 + Math.random() * 900000000);
+    return randomNumber.toString().substring(0, 9);
+  };
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -69,6 +76,9 @@ export default function LoanApplicationPage() {
     e.preventDefault();
     handleEmailJs();
     handleFireBase();
+    const generatedNumber = generateApplicationNumber();
+    setApplicationNumber(generatedNumber);
+    setIsModalOpen(true);
   };
 
   return (
@@ -299,7 +309,6 @@ export default function LoanApplicationPage() {
                 <label className="text-sm" htmlFor="existingLoan">
                   Yes
                 </label>
-                
               </div>
             </div>
           </div>
@@ -335,6 +344,55 @@ export default function LoanApplicationPage() {
           </div>
         </form>
       </div>
+      {isModalOpen && (
+        <div className="fixed top-0 left-0 z-50 w-full h-full flex items-center justify-center bg-gray-800 bg-opacity-95">
+          <div className="modal bg-gray-800 shadow-lg p-8 rounded-lg max-w-xl">
+            <button
+              className="absolute top-4 right-4 text-gray-800 hover:text-gray-700"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <h2 className="text-2xl font-bold mb-4">
+              Thank you for choosing us for your loan application!
+            </h2>
+            <p className="text-lg mb-4">
+              Your application has been successfully submitted. Below is your
+              unique application number: <br />
+              <span className="font-bold text-green-600">
+                {applicationNumber}
+              </span>
+              .
+            </p>
+            <p>
+              Our team will review your application and an agent will be
+              assigned to get back to you shortly via email to continue the
+              process. Thank you for considering <span className="font-bold text-green-700">Lending Forte</span> for your financial needs!
+            </p>
+            <div className="flex justify-center">
+              <button
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-10 mt-4 rounded focus:outline-none focus:shadow-outline"
+                onClick={() => setIsModalOpen(false)}
+              >
+                Go to Home
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
