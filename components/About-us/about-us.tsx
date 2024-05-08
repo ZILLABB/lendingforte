@@ -3,7 +3,7 @@ import Head from "next/head";
 const AboutUsPage = () => {
   return (
     <div>
-      <section className=" mt-10 leading-8 font-normal p-10 text-gray-500">
+      <section className=" mt-10 leading-8 font-normal p-4 text-gray-500">
         <div className="container mx-auto px-4 py-12">
           <h1 className="text-3xl font-inter text-green-600 text-center font-bold mb-6">
             About Us

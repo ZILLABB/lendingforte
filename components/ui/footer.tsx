@@ -49,6 +49,23 @@ export default function Footer() {
                   6820 W Central Ave 6820 W Central Ave, Wichita, KS 67212, USA
                 </p>
               </div>
+              <div className="flex gap-2 mt-4 items-center">
+                <img
+                  className="w-14 h-14"
+                  src="/images/lendingforte/badges/simplesecuretrusted-desktop.png"
+                  alt=""
+                />
+                <img
+                  className="w-14 h-14"
+                  src="/images/lendingforte/badges/8000-5-Star-Reviews200px.png"
+                  alt=""
+                />
+                <img
+                  className="w-14 h-14"
+                  src="/images/lendingforte/badges/Fast-Online-Payday-Loans-badge.png"
+                  alt=""
+                />
+              </div>
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}
