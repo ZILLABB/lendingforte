@@ -6,8 +6,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { push, ref } from "firebase/database";
 import { database } from "../../config";
+import Link from "next/link";
+
+const generateApplicationNumber = () => {
+  const randomNumber = Math.floor(100000000 + Math.random() * 900000000);
+  return randomNumber.toString().substring(0, 9);
+};
 
 export default function LoanApplicationPage() {
+  const generatedNumber = generateApplicationNumber();
+
   const [formData, setFormData] = useState({
     fullName: "",
     dob: "",
@@ -24,14 +32,11 @@ export default function LoanApplicationPage() {
     tenure: "",
     existingLoan: false,
     agreement: false,
+    code: generatedNumber,
   });
+  console.log(formData)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [applicationNumber, setApplicationNumber] = useState("");
-
-  const generateApplicationNumber = () => {
-    const randomNumber = Math.floor(100000000 + Math.random() * 900000000);
-    return randomNumber.toString().substring(0, 9);
-  };
+  // const [applicationNumber, setApplicationNumber] = useState("");
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
@@ -72,13 +77,13 @@ export default function LoanApplicationPage() {
       });
     }
   };
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     handleEmailJs();
     handleFireBase();
-    const generatedNumber = generateApplicationNumber();
-    setApplicationNumber(generatedNumber);
     setIsModalOpen(true);
+    setFormData({ ...formData });
   };
 
   return (
@@ -373,22 +378,25 @@ export default function LoanApplicationPage() {
               Your application has been successfully submitted. Below is your
               unique application number: <br />
               <span className="font-bold text-green-600">
-                {applicationNumber}
+                {generatedNumber}
               </span>
               .
             </p>
             <p>
               Our team will review your application and an agent will be
               assigned to get back to you shortly via email to continue the
-              process. Thank you for considering <span className="font-bold text-green-700">Lending Forte</span> for your financial needs!
+              process. Thank you for considering{" "}
+              <span className="font-bold text-green-700">Lending Forte</span>{" "}
+              for your financial needs!
             </p>
             <div className="flex justify-center">
-              <button
+              <Link
+                href="/"
                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-10 mt-4 rounded focus:outline-none focus:shadow-outline"
-                onClick={() => setIsModalOpen(false)}
+                // onClick={() => setIsModalOpen(false)}
               >
                 Go to Home
-              </button>
+              </Link>
             </div>
           </div>
         </div>
