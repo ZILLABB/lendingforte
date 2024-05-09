@@ -20,15 +20,15 @@ export default function MortgagePage(): JSX.Element {
                       
                     <ul>
                         <li className="flex items-center mb-2">
-                        <FaCheckCircle className="mr-2 w-8 h-8 text-green-500" />
+                        <FaCheckCircle className="mr-2  text-green-500" />
                         Check your rate in 5 minutes.
                         </li>
                         <li className="flex items-center mb-2">
-                        <FaCheckCircle className="mr-2 w-8 h-8 text-green-500" />
+                        <FaCheckCircle className="mr-2  text-green-500" />
                         Get funded in as fast as 1 business day.
                         </li>
                         <li className="flex items-center mb-2">
-                        <FaCheckCircle className="mr-2 w-8 h-8 text-green-500" />
+                        <FaCheckCircle className="mr-2  text-green-500" />
                         Apply for a loan from $1,000 to $301,000
                         </li>
                     </ul>
@@ -39,7 +39,7 @@ export default function MortgagePage(): JSX.Element {
             </button>
           </Link>
           <div className="flex justify-center gap-2 items-center  font-medium text-lg">
-            <FaLock className="text-green-500 w-8 h-8" />
+            <FaLock className="text-green-500 " />
             <p>This action won’t affect your credit score</p>
           </div>
         </div>
