@@ -12,7 +12,7 @@ export default function BusinessLoanPage(): JSX.Element {
       />
 
       <div className="absolute top-0 right-0 w-full mt-4 transform text-center text-white z-10">
-        <div className=" mx-auto p-3 mt-24 py-10  bg-black bg-opacity-70 rounded-lg">
+        <div className=" mx-auto p-3 mt-24 py-10   rounded-lg">
           <h1 className="text-3xl font-bold mb-4">
             A Business loan for your business needs
           </h1>

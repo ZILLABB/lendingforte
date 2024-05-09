@@ -12,7 +12,7 @@ export default function MortgagePage(): JSX.Element {
       />
 
       <div className="absolute top-0 left-0 mt-8 transform w-full  text-center text-white z-10">
-        <div className=" mx-auto p-3 mt-24 py-10 bg-black bg-opacity-70 rounded-lg">
+        <div className=" mx-auto p-3 mt-24 py-10   rounded-lg">
           <h1 className="text-3xl font-bold mb-4">
             Turn your house into a dream home today
                   </h1>

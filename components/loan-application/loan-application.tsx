@@ -34,7 +34,7 @@ export default function LoanApplicationPage() {
     agreement: false,
     code: generatedNumber,
   });
-  console.log(formData)
+  console.log(formData);
   const [isModalOpen, setIsModalOpen] = useState(false);
   // const [applicationNumber, setApplicationNumber] = useState("");
 
@@ -59,6 +59,7 @@ export default function LoanApplicationPage() {
             theme: "colored",
           }
         );
+        setIsModalOpen(true);
       })
       .catch(() =>
         toast.error("Something went wrong! Please try again later.", {
@@ -82,7 +83,6 @@ export default function LoanApplicationPage() {
     e.preventDefault();
     handleEmailJs();
     handleFireBase();
-    setIsModalOpen(true);
     setFormData({ ...formData });
   };
 
@@ -224,7 +224,7 @@ export default function LoanApplicationPage() {
                 What Type of Loan do you need?
               </label>
               <select
-                className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline   "
                 id="loanType"
                 name="loanType"
                 value={formData.loanType}
@@ -235,10 +235,23 @@ export default function LoanApplicationPage() {
                 <option value="Apartment Purchase Loan">
                   Apartment Purchase Loan
                 </option>
-                <option value="Monthly Income from Other Sources">
+                <option className="hover:bg-green-600" value="Monthly Income from Other Sources">
                   Monthly Income from Other Sources
                 </option>
                 <option value="Business">Business</option>
+                <option value="Home Mortgage Loan">Home Mortgage Loan</option>
+                <option value="Car Loan">Car Loan</option>
+                <option value="Personal Loan">Personal Loan</option>
+                <option value="Business Loan">Business Loan</option>
+                <option value="Education Loan">Education Loan</option>
+                <option value="Debt Consolidation Loan">
+                  Debt Consolidation Loan
+                </option>
+                <option value="Medical Loan">Medical Loan</option>
+                <option value="Vacation Loan">Vacation Loan</option>
+                <option value="Wedding Loan">Wedding Loan</option>
+                <option value="Renovation Loan">Renovation Loan</option>
+                <option value="Emergency Loan">Emergency Loan</option>
                 <option value="Other">Others</option>
               </select>
             </div>
