@@ -6,9 +6,14 @@ import Link from "next/link";
 export default function Hero() {
   return (
     <section>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+      <div className="w-full mx-auto px-4 sm:px-6 relative">
         <div className="relative pt-32 pb-10 md:pt-40 md:pb-16">
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
+            <img
+              src="/images/lendingforte/badges/new.jpg"
+              alt="Background Image"
+              className="absolute top-0 left-0 w-full h-full object-cover opacity-10"
+            />
             <h1 className="h1 mb-4" data-aos="fade-up">
               Get Fast <span className="text-green-600">Cash.</span> Apply Now,
               Get <span className="text-green-600">FUNDED</span> Today!
@@ -24,7 +29,7 @@ export default function Hero() {
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
-                <Link 
+                <Link
                   className="btn text-white rounded-full bg-green-600 hover:bg-gray-300 hover:text-gray-800 w-full mb-4 sm:w-auto sm:mb-0"
                   href="/loan-application"
                 >
@@ -41,12 +46,12 @@ export default function Hero() {
               </div>
             </div>
           </div>
+        </div>
           <img
-            className="w-full h-full rounded-lg "
+            className="w-full mt-10 h-full rounded-lg "
             src="../images/lendingforte/pexels-pixabay-210600.jpg"
             alt="coins"
           />
-        </div>
       </div>
     </section>
   );
