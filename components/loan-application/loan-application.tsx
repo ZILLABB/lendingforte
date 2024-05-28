@@ -110,7 +110,7 @@ export default function LoanApplicationPage() {
         </p>
         <form onSubmit={handleSubmit}>
           {step === 1 && (
-            <>
+            <div className="bg-gray-700 shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4">
               <div className="mb-4">
                 <label className="block  font-bold mb-2" htmlFor="firstName">
                   First Name
@@ -170,47 +170,48 @@ export default function LoanApplicationPage() {
                   required
                 />
               </div>
-              <div className="mb-4">
-                <label className="block  font-bold mb-2" htmlFor="area">
-                  Address
-                </label>
-                <input
-                  className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
-                  id="area"
-                  type="text"
-                  name="area"
-                  value={formData.area}
-                  onChange={handleChange}
-                  placeholder="5th Floor, 123 Main Street"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block  font-bold mb-2" htmlFor="city">
-                  City
-                </label>
-                <input
-                  className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
-                  id="city"
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="South Carolina"
-                  required
-                />
-              </div>
+
               <button
                 onClick={handleNextStep}
                 className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
               >
                 Next
               </button>
-            </>
+            </div>
           )}
           {step === 2 && (
-            <>
+            <div className="bg-gray-700 shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="mb-4">
+                  <label className="block  font-bold mb-2" htmlFor="area">
+                    Address
+                  </label>
+                  <input
+                    className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                    id="area"
+                    type="text"
+                    name="area"
+                    value={formData.area}
+                    onChange={handleChange}
+                    placeholder="5th Floor, 123 Main Street"
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block  font-bold mb-2" htmlFor="city">
+                    City
+                  </label>
+                  <input
+                    className="appearance-none text-black border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                    id="city"
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    placeholder="South Carolina"
+                    required
+                  />
+                </div>
                 <div className="mb-4">
                   <label className="block  font-bold mb-2" htmlFor="country">
                     Country
@@ -274,6 +275,83 @@ export default function LoanApplicationPage() {
                     required
                   />
                 </div>
+
+                {/* <div className="mb-4">
+                  <label
+                    className="block  font-bold mb-2"
+                    htmlFor="existingLoan"
+                  >
+                    Do you have any existing loan with{" "}
+                    <span className="font-semibold text-green-600">
+                      Lending Forte
+                    </span>
+                    ? ignore if you dont have any.
+                  </label>
+                  <div className="flex items-center">
+                    <input
+                      className="mr-2 accent-green-600"
+                      id="existingLoan"
+                      type="checkbox"
+                      name="existingLoan"
+                      checked={formData.existingLoan}
+                      onChange={() =>
+                        setFormData({
+                          ...formData,
+                          existingLoan: !formData.existingLoan,
+                        })
+                      }
+                    />
+                    <label className="text-sm" htmlFor="existingLoan">
+                      Yes
+                    </label>
+                  </div>
+                </div> */}
+              </div>
+              {/* <div className="mb-6">
+                <label className="block  font-bold mb-2" htmlFor="agreement">
+                  <input
+                    className="mr-2 leading-tight accent-green-600"
+                    id="agreement"
+                    type="checkbox"
+                    name="agreement"
+                    checked={formData.agreement}
+                    onChange={() =>
+                      setFormData({
+                        ...formData,
+                        agreement: !formData.agreement,
+                      })
+                    }
+                    required
+                  />
+                  <span className="text-sm">
+                    I do hereby admit that all the above information that I have
+                    input is true & correct. If any of the above information is
+                    found to be false or incorrect, I understand & agree that my
+                    loan application will be rejected. I agree to share my
+                    information following the company policy as required.
+                  </span>
+                </label>
+              </div> */}
+              <div className="flex items-center justify-between">
+                <button
+                  onClick={handlePreviousStep}
+                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button"
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={handleNextStep}
+                  className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+          {step === 3 && (
+            <div className="bg-gray-700 shadow-md rounded-[8px] px-8 pt-6 pb-8 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="mb-4">
                   <label className="block  font-bold mb-2" htmlFor="loanType">
                     What Type of Loan do you need?
@@ -421,10 +499,10 @@ export default function LoanApplicationPage() {
                   </span>
                 </label>
               </div>
-              <div className="flex items-center justify-between">
+              <div className="lg:flex items-center  gap-2 justify-between">
                 <button
                   onClick={handlePreviousStep}
-                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-gray-500 mb-3 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   type="button"
                 >
                   Previous
@@ -436,7 +514,7 @@ export default function LoanApplicationPage() {
                   Submit Application
                 </button>
               </div>
-            </>
+            </div>
           )}
         </form>
       </div>
