@@ -8,6 +8,7 @@ import { push, ref } from "firebase/database";
 import { database } from "../../config"; // Assuming you have firebase configuration
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Country as CountryType, State as StateType, City as CityType, ICountry, IState, ICity } from 'country-state-city';
 import { 
   ArrowLeftIcon, 
   ArrowRightIcon, 
@@ -785,52 +786,52 @@ export default function LoanApplicationPage() {
     }
   };
 
-  const [countries, setCountries] = useState(Country.getAllCountries());
-  const [states, setStates] = useState([]);
-  const [cities, setCities] = useState([]);
+  // Import types from country-state-city library
+
+  const [countries, setCountries] = useState<ICountry[]>(Country.getAllCountries());
+  const [states, setStates] = useState<IState[]>([]);
+  const [cities, setCities] = useState<ICity[]>([]);
 
   useEffect(() => {
-    if (formData.country) {
-      const countryData = countries.find(c => c.name === formData.country);
-      if (countryData) {
-        const countryStates = State.getStatesOfCountry(countryData.isoCode);
-        setStates(countryStates);
-        
-        // Reset state and city if country changes
-        if (!countryStates.find(s => s.name === formData.state)) {
-          setFormData(prev => ({
-            ...prev,
-            state: '',
-            city: ''
-          }));
-          setCities([]);
-        }
-      }
-    }
-  }, [formData.country]);
+  if (!formData.country) return;
 
-  useEffect(() => {
-    if (formData.country && formData.state) {
-      const countryData = countries.find(c => c.name === formData.country);
-      const stateData = states.find(s => s.name === formData.state);
-      
-      if (countryData && stateData) {
-        const stateCities = City.getCitiesOfState(
-          countryData.isoCode,
-          stateData.isoCode
-        );
-        setCities(stateCities);
-        
-        // Reset city if state changes and current city isn't in new state
-        if (!stateCities.find(c => c.name === formData.city)) {
-          setFormData(prev => ({
-            ...prev,
-            city: ''
-          }));
-        }
-      }
-    }
-  }, [formData.state, formData.country]);
+  const countryData = countries.find(c => c.name === formData.country);
+  if (!countryData) return;
+
+  const countryStates = State.getStatesOfCountry(countryData.isoCode) || [];
+  setStates(countryStates);
+
+  if (!countryStates.find(s => s.name === formData.state)) {
+    setFormData(prev => ({
+      ...prev,
+      state: '',
+      city: ''
+    }));
+    setCities([]);
+  }
+}, [formData.country, countries]);
+
+useEffect(() => {
+  if (!formData.country || !formData.state) return;
+
+  const countryData = countries.find(c => c.name === formData.country);
+  const stateData = states.find(s => s.name === formData.state);
+  if (!countryData || !stateData) return;
+
+  const stateCities = City.getCitiesOfState(
+    countryData.isoCode,
+    stateData.isoCode
+  ) || [];
+  setCities(stateCities);
+
+  if (!stateCities.find(c => c.name === formData.city)) {
+    setFormData(prev => ({
+      ...prev,
+      city: ''
+    }));
+  }
+}, [formData.country, formData.state, countries, states]);
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 py-12 pt-24 px-4">
