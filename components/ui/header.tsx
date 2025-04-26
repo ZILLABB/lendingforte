@@ -50,13 +50,11 @@ export default function Header() {
                 aria-label="LendingForte"
               >
                 <img
-                  className="h-10 w-auto"
+                  className="h-12 w-auto rounded-full"
                   src="/images/lendingforte/logod.png"
                   alt="LendingForte"
                 />
-                {/* <span className="ml-2 text-white text-xl font-medium">
-                  LendingForte
-                </span> */}
+               
               </Link>
             </div>
 
