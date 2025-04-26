@@ -13,7 +13,7 @@ export default function Businessloan() {
   return (
     <>
       <BusinessLoanPage />
-      <BusinessWhyPage />
+      {/* <BusinessWhyPage /> */}
     </>
   );
 }

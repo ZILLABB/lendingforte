@@ -1,242 +1,186 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { PhoneIcon, EnvelopeIcon, MapPinIcon } from "@heroicons/react/24/outline";
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="bg-gray-900 text-white">
       <div className="py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           {/* Top area: Blocks */}
           <div className="grid md:grid-cols-12 gap-8 lg:gap-20 mb-8 md:mb-12">
             {/* 1st block */}
             <div className="md:col-span-4 lg:col-span-5">
-              <div className="mb-2">
+              <div className="mb-6">
                 {/* Logo */}
-                <Link
-                  href="/"
-                  className="inline-block"
-                  aria-label="Lending Forte"
-                >
-                  <img
+                <Link href="/" className="inline-block" aria-label="Lending Forte">
+                  <Image
+                    src="/images/lendingforte/logod.png"
+                    alt="Lending Forte Logo"
+                    width={150}
+                    height={48}
                     className="h-12 w-auto"
-                    src="../images/lendingforte/lending_FORTE__4_-removebg-preview.png"
-                    alt="logo"
                   />
                 </Link>
               </div>
-              <div className="text-gray-400">
+              <div className="text-gray-400 mb-6">
                 Lending Forte is dedicated to providing straightforward and
                 accessible loan solutions to meet your financial needs.
               </div>
-              <div className="mt-5 ">
-                <p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <PhoneIcon className="h-5 w-5 text-green-500" />
                   <a
-                    className="text-gray-400  hover:text-green-500 transition duration-150 ease-in-out"
-                    href=" tel: +1-(315)-949-8539"
+                    className="text-gray-400 hover:text-green-500 transition duration-150 ease-in-out"
+                    href="tel:+13159498539"
                   >
                     +1-(315)-949-8539
                   </a>
-                </p>
-                <p className="text-gray-400 mt-3">
+                </div>
+                <div className="flex items-center gap-2">
+                  <EnvelopeIcon className="h-5 w-5 text-green-500" />
                   <a
-                    className="text-gray-400  hover:text-green-500 transition duration-150 ease-in-out"
-                    href=" mailto: info@lendingforte.com "
+                    className="text-gray-400 hover:text-green-500 transition duration-150 ease-in-out"
+                    href="mailto:info@lendingforte.com"
                   >
                     info@lendingforte.com
                   </a>
-                </p>
-                <p className="text-gray-400 mt-3">
-                  6820 W Central Ave 6820 W Central Ave, Wichita, KS 67212, USA
-                </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <MapPinIcon className="h-5 w-5 text-green-500 mt-0.5" />
+                  <p className="text-gray-400">
+                    6820 W Central Ave, Wichita, KS 67212, USA
+                  </p>
+                </div>
               </div>
-              <div className="flex gap-2 mt-4 items-center">
-                <img
-                  className="w-14 h-14"
-                  src="/images/lendingforte/badges/simplesecuretrusted-desktop.png"
-                  alt=""
-                />
-                <img
-                  className="w-14 h-14"
-                  src="/images/lendingforte/badges/8000-5-Star-Reviews200px.png"
-                  alt=""
-                />
-                <img
-                  className="w-14 h-14"
-                  src="/images/lendingforte/badges/Fast-Online-Payday-Loans-badge.png"
-                  alt=""
-                />
+              <div className="flex gap-3 mt-6 items-center">
+                {[
+                  {
+                    src: "/images/lendingforte/badges/simplesecuretrusted-desktop.png",
+                    alt: "Simple, Secure, Trusted badge"
+                  },
+                  {
+                    src: "/images/lendingforte/badges/8000-5-Star-Reviews200px.png",
+                    alt: "8000 5-Star Reviews badge"
+                  },
+                  {
+                    src: "/images/lendingforte/badges/Fast-Online-Payday-Loans-badge.png",
+                    alt: "Fast Online Payday Loans badge"
+                  }
+                ].map((badge, index) => (
+                  <Image
+                    key={index}
+                    src={badge.src}
+                    alt={badge.alt}
+                    width={56}
+                    height={56}
+                    className="rounded-md"
+                  />
+                ))}
               </div>
             </div>
 
             {/* 2nd, 3rd and 4th blocks */}
-            <div className="md:col-span-8 mt-12 lg:col-span-7 grid sm:grid-cols-3 gap-8">
-              {/* 2nd block */}
+            <div className="md:col-span-8 lg:col-span-7 grid sm:grid-cols-3 gap-8">
+              {/* Products */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Products</h6>
-                <ul>
-                  <li className="mb-1">
-                    <Link
-                      href="/personal-loan"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Personal Loans
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/business-loan"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Business Loans
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/mortgage"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Mortgage Loans
-                    </Link>
-                  </li>
+                <h6 className="text-gray-200 font-medium mb-4 text-lg">Products</h6>
+                <ul className="space-y-3">
+                  {[
+                    { href: "/personal-loan", label: "Personal Loans" },
+                    { href: "/business-loan", label: "Business Loans" },
+                    { href: "/mortgage", label: "Mortgage Loans" }
+                  ].map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-400 hover:text-green-500 transition duration-150 ease-in-out flex items-center gap-1"
+                      >
+                        <span>→</span> {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* 3rd block */}
+              {/* Resources */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Resources</h6>
-                <ul>
-                  <li className="mb-1">
-                    <Link
-                      href="/term-of-use"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Term of Use{" "}
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/faq"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      FAQ
-                    </Link>
-                  </li>
+                <h6 className="text-gray-200 font-medium mb-4 text-lg">Resources</h6>
+                <ul className="space-y-3">
+                  {[
+                    { href: "/term-of-use", label: "Terms of Use" },
+                    { href: "/faq", label: "FAQ" }
+                  ].map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-400 hover:text-green-500 transition duration-150 ease-in-out flex items-center gap-1"
+                      >
+                        <span>→</span> {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* 4th block */}
+              {/* Company */}
               <div className="text-sm">
-                <h6 className="text-gray-200 font-medium mb-1">Company</h6>
-                <ul>
-                  <li className="mb-1">
-                    <Link
-                      href="/about-us"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      About Us
-                    </Link>
-                  </li>
-                  <li className="mb-1">
-                    <Link
-                      href="/contact-us"
-                      className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
-                    >
-                      Contact Us
-                    </Link>
-                  </li>
+                <h6 className="text-gray-200 font-medium mb-4 text-lg">Company</h6>
+                <ul className="space-y-3">
+                  {[
+                    { href: "/about-us", label: "About Us" },
+                    { href: "/contact-us", label: "Contact Us" }
+                  ].map((link, index) => (
+                    <li key={index}>
+                      <Link
+                        href={link.href}
+                        className="text-gray-400 hover:text-green-500 transition duration-150 ease-in-out flex items-center gap-1"
+                      >
+                        <span>→</span> {link.label}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
           </div>
 
           {/* Bottom area */}
-          <div className="md:flex md:items-center md:justify-between">
-            {/* Social links */}
-            {/* <ul className="flex mb-4 md:order-1 md:ml-4 md:mb-0">
-              <li>
-                <Link
-                  href="/"
-                  className="flex justify-center items-center text-green-600 bg-gray-800 hover:text-gray-100 hover:bg-green-600 rounded-full transition duration-150 ease-in-out"
-                  aria-label="Twitter"
+          <div className="md:flex md:items-center md:justify-between pt-5 border-t border-gray-800">
+            {/* Social links - uncomment if needed */}
+            <div className="flex space-x-4 mb-4 md:mb-0">
+              {[
+                { icon: "M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z", 
+                  label: "GitHub" },
+                { icon: "M22.258 1H2.742C1.781 1 1 1.781 1 2.742v18.516C1 22.219 1.781 23 2.742 23h9.796v-8.458h-2.66v-3.355h2.66V8.436c0-2.698 1.693-4.138 4.13-4.138 1.172 0 2.177.087 2.471.126v2.772h-1.696c-1.33 0-1.588.632-1.588 1.558v2.032h3.16l-.42 3.355h-2.74V23h5.37c.96 0 1.742-.781 1.742-1.742V2.742C24 1.781 23.219 1 22.258 1z", 
+                  label: "Facebook" },
+                { icon: "M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 14-7.503 14-14v-.617c.962-.689 1.801-1.56 2.46-2.548l-.047-.02z", 
+                  label: "Twitter" },
+                { icon: "M7.443 5.3496h8.4d4.328v0h.001c1.007 0 1.826.82 1.826 1.826v5.15c0 1.007-.82 1.827-1.826 1.827h-5.15v.878h3.837c.235 0 .431.188.456.422l.163 1.557a.476.476 0 01-.476.522H7.945a.451.451 0 01-.32-.132.442.442 0 01-.132-.319v-2.928h-.5A1.39 1.39 0 016 12.341V7.176A1.39 1.39 0 017.39 5.787h.053zm8.894 2.781a1.825 1.825 0 10-.001 3.65 1.825 1.825 0 00.001-3.65z", 
+                  label: "LinkedIn" }
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href="#"
+                  className="text-gray-400 hover:text-green-500 transition-colors"
+                  aria-label={social.label}
                 >
-                  <svg
-                    className="w-8 h-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <svg 
+                    className="w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
                   >
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z" />
+                    <path d={social.icon} />
                   </svg>
-                </Link>
-              </li>
+                </a>
+              ))}
+            </div>
 
-              <li className="ml-4">
-                <Link
-                  href="/"
-                  className="flex justify-center items-center text-green-600 bg-gray-800 hover:text-gray-100 hover:bg-green-600 rounded-full transition duration-150 ease-in-out"
-                  aria-label="Github"
-                >
-                  <svg
-                    className="w-8 h-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z" />
-                  </svg>
-                </Link>
-              </li>
-              <li className="ml-4">
-                <Link
-                  href="/"
-                  className="flex justify-center items-center text-green-600 bg-gray-800 hover:text-gray-100 hover:bg-green-600 rounded-full transition duration-150 ease-in-out"
-                  aria-label="Facebook"
-                >
-                  <svg
-                    className="w-8 h-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M14.023 24L14 17h-3v-3h3v-2c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V14H21l-1 3h-2.72v7h-3.257z" />
-                  </svg>
-                </Link>
-              </li>
-              <li className="ml-4">
-                <Link
-                  href="/"
-                  className="flex justify-center items-center text-green-600 bg-gray-800 hover:text-gray-100 hover:bg-green-600 rounded-full transition duration-150 ease-in-out"
-                  aria-label="Instagram"
-                >
-                  <svg
-                    className="w-8 h-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="20.145" cy="11.892" r="1" />
-                    <path d="M16 20c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4zm0-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2z" />
-                    <path d="M20 24h-8c-2.056 0-4-1.944-4-4v-8c0-2.056 1.944-4 4-4h8c2.056 0 4 1.944 4 4v8c0 2.056-1.944 4-4 4zm-8-14c-.935 0-2 1.065-2 2v8c0 .953 1.047 2 2 2h8c.935 0 2-1.065 2-2v-8c0-.935-1.065-2-2-2h-8z" />
-                  </svg>
-                </Link>
-              </li>
-              <li className="ml-4">
-                <Link
-                  href="/"
-                  className="flex justify-center items-center text-green-600 bg-gray-800 hover:text-gray-100 hover:bg-green-600 rounded-full transition duration-150 ease-in-out"
-                  aria-label="Linkedin"
-                >
-                  <svg
-                    className="w-8 h-8 fill-current"
-                    viewBox="0 0 32 32"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M23.3 8H8.7c-.4 0-.7.3-.7.7v14.7c0 .3.3.6.7.6h14.7c.4 0 .7-.3.7-.7V8.7c-.1-.4-.4-.7-.8-.7zM12.7 21.6h-2.3V14h2.4v7.6h-.1zM11.6 13c-.8 0-1.4-.7-1.4-1.4 0-.8.6-1.4 1.4-1.4.8 0 1.4.6 1.4 1.4-.1.7-.7 1.4-1.4 1.4zm10 8.6h-2.4v-3.7c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.8h-2.4V14h2.3v1c.3-.6 1.1-1.2 2.2-1.2 2.4 0 2.8 1.6 2.8 3.6v4.2h.1z" />
-                  </svg>
-                </Link>
-              </li>
-              {/* Add more social links here */}
-            {/* </ul> } */}
-
-            {/* Copyrights note */}
-            <div className="text-gray-400 text-sm mr-4">
-              &copy; 2024 Lending Forte. All rights reserved.
+            {/* Copyright */}
+            <div className="text-gray-500 text-sm">
+              &copy; {new Date().getFullYear()} Lending Forte. All rights reserved.
             </div>
           </div>
         </div>

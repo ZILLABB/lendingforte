@@ -1,7 +1,6 @@
 // import { useClient } from 'next/data-client';
 
-import MortgagePage from "@/components/mortgage/mortgage";
-import WhyChoosemortgage from "@/components/mortgage/whys";
+import LoanCalculator from "@/app/reuseable/calculator";
 
 
 export const metadata = {
@@ -12,8 +11,7 @@ export const metadata = {
 export default function Mortgages() {
   return (
     <>
-      <MortgagePage />
-      {/* <WhyChoosemortgage /> */}
+      <LoanCalculator />
     </>
   );
 }

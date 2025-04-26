@@ -12,7 +12,7 @@ export default function PersonalLoan() {
   return (
     <>
       <PersonalLoanPage />
-      <WhyChooseLendingFortePage />
+      {/* <WhyChooseLendingFortePage /> */}
     </>
   );
 }
