@@ -22,6 +22,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { Country, State, City, IState } from 'country-state-city';
 import { useRouter } from 'next/navigation';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 // Function to generate a random 9-digit application number
 const generateApplicationNumber = () => {
@@ -564,65 +566,27 @@ export default function LoanApplicationPage() {
   };
 
   // Enhanced email and Firebase submission with loading state
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate the current step again before submission
-    if (step === 6) {
-      if (!validateCurrentStep(step)) {
-        // Show specific errors for the review step
-        const errorFields = Object.keys(formErrors);
-        if (errorFields.length > 0) {
-          const errorMessage = `Please fix the following issues: ${errorFields.map(field => 
-            `${field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())} - ${formErrors[field]}`
-          ).join(', ')}`;
-          toast.error(errorMessage, { theme: "colored" });
-        } else {
-          toast.error("Please fix all errors before submitting.", { theme: "colored" });
-        }
-        return;
+    try {
+      const user = auth.currentUser;
+      if (!user) {
+        throw new Error('User not authenticated');
       }
-      
-      if (!formData.agreement) {
-        setFormErrors(prev => ({...prev, agreement: "You must agree to the terms and conditions."}));
-        toast.error("You must agree to the terms and conditions.", { theme: "colored" });
-        return;
-      }
-    }
 
-    // Set loading state
-    setIsSubmitting(true);
-    
-    // Submit to EmailJS first, then try Firebase as a backup
-    emailjs.send(
-      "service_mmu6bro",
-      "template_e9tvy3f",
-      formData,
-      "mRm23xSD-WMIu8ZDK"
-    )
-    .then(() => {
-      // Try Firebase, but don't wait for it or let it block success
-      try {
-        handleFireBase();
-      } catch (error) {
-        console.error("Firebase error (non-blocking):", error);
-      }
+      const docRef = await addDoc(collection(db, 'loanApplications'), {
+        ...formData,
+        userId: user.uid,
+        createdAt: new Date(),
+        status: 'pending'
+      });
       
-      // Show success message and open modal
-      toast.success("Your loan application has been submitted successfully!", {
-        theme: "colored",
-      });
-      setIsModalOpen(true);
-    })
-    .catch((error) => {
-      console.error("EmailJS submission error:", error);
-      toast.error(`Submission error: ${error.message || "Something went wrong! Please try again later."}`, {
-        theme: "colored",
-      });
-    })
-    .finally(() => {
-      setIsSubmitting(false);
-    });
+      // Handle successful submission
+      console.log('Application submitted with ID:', docRef.id);
+    } catch (error) {
+      console.error('Error submitting application:', error);
+      // Handle error appropriately
+    }
   };
 
   // And in any place you use the router, add a check
@@ -652,7 +616,7 @@ export default function LoanApplicationPage() {
         }
       }
     }
-  }, [formData.country]);
+  }, [formData.state, formData.country]);
 
   useEffect(() => {
     if (formData.country && formData.state) {
