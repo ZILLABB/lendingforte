@@ -319,48 +319,9 @@ export default function LoanApplicationPage() {
 
   // Handle input changes in the form
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value, type } = e.target;
-    const isCheckbox = type === "checkbox";
-    // Need type assertion for checked property
-    const checked = isCheckbox ? (e.target as HTMLInputElement).checked : undefined;
-
-    setFormData({
-      ...formData,
-      [name]: isCheckbox ? checked : value,
-    });
-
-    // Handle dependent fields
-    if (name === "existingLoan" && !checked) {
-      // If user unchecks existing loan, reset the loans array
-      setExistingLoans([{ lender: "", monthlyPayment: "", remainingBalance: "" }]);
-    }
-
-    if (name === "hasBankruptcy" && !checked) {
-      // If user unchecks bankruptcy, clear the date
-      setFormData({
-        ...formData,
-        bankruptcyDate: "",
-        [name]: checked
-      });
-    }
-
-    if (name === "hasForeclosure" && !checked) {
-      // If user unchecks foreclosure, clear the date
-      setFormData({
-        ...formData,
-        foreclosureDate: "",
-        [name]: checked
-      });
-    }
-
-    // Clear the error for the field being changed
-    if (formErrors[name]) {
-      setFormErrors((prevErrors) => {
-        const newErrors = { ...prevErrors };
-        delete newErrors[name];
-        return newErrors;
-      });
-    }
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    validateField(name, value);
   };
 
   // Function to send email via EmailJS
