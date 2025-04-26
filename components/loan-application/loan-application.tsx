@@ -324,6 +324,194 @@ export default function LoanApplicationPage() {
     validateField(name, value);
   };
 
+  // Function to validate a single field
+  const validateField = (name: string, value: string) => {
+    const errors: Record<string, string> = { ...formErrors };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
+    const ssnRegex = /^\d{3}-\d{2}-\d{4}$/;
+    const MIN_LOAN_AGE = 18;
+
+    switch (name) {
+      // Personal Information fields
+      case 'firstName':
+        if (!value.trim()) errors[name] = "First name is required.";
+        else delete errors[name];
+        break;
+      case 'lastName':
+        if (!value.trim()) errors[name] = "Last name is required.";
+        else delete errors[name];
+        break;
+      case 'dob':
+        if (!value) {
+          errors[name] = "Date of birth is required.";
+        } else {
+          const dobDate = new Date(value);
+          if (isNaN(dobDate.getTime())) {
+            errors[name] = "Invalid date format.";
+          } else {
+            const today = new Date();
+            let age = today.getFullYear() - dobDate.getFullYear();
+            const monthDiff = today.getMonth() - dobDate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dobDate.getDate())) {
+              age--;
+            }
+            if (age < MIN_LOAN_AGE) {
+              errors[name] = `You must be at least ${MIN_LOAN_AGE} years old.`;
+            } else {
+              delete errors[name];
+            }
+          }
+        }
+        break;
+      case 'ssn':
+        if (!value.trim()) {
+          errors[name] = "Social Security Number is required.";
+        } else if (!ssnRegex.test(value)) {
+          errors[name] = "SSN must be in XXX-XX-XXXX format.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'maritalStatus':
+        if (!value.trim()) errors[name] = "Marital status is required.";
+        else delete errors[name];
+        break;
+
+      // Address fields
+      case 'streetAddress':
+      case 'city':
+      case 'state':
+      case 'zipCode':
+      case 'yearsAtAddress':
+      case 'housingStatus':
+      case 'monthlyHousingCost':
+        if (!value.trim()) errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        else delete errors[name];
+        break;
+
+      // Identity fields
+      case 'idType':
+      case 'idNumber':
+      case 'idExpirationDate':
+      case 'citizenshipStatus':
+        if (!value.trim()) errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        else delete errors[name];
+        break;
+
+      // Employment & Contact fields
+      case 'employmentStatus':
+        if (!value.trim()) errors[name] = "Employment status is required.";
+        else delete errors[name];
+        break;
+      case 'employerName':
+      case 'jobTitle':
+      case 'employmentLength':
+        if ((formData.employmentStatus === "Employed Full-Time" || 
+             formData.employmentStatus === "Employed Part-Time" || 
+             formData.employmentStatus === "Self-Employed") && 
+            !value.trim()) {
+          errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'phoneNumber':
+        if (!value.trim()) {
+          errors[name] = "Phone number is required.";
+        } else if (!phoneRegex.test(value)) {
+          errors[name] = "Invalid phone number format.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'email':
+        if (!value.trim()) {
+          errors[name] = "Email address is required.";
+        } else if (!emailRegex.test(value)) {
+          errors[name] = "Invalid email address format.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'monthlyIncome':
+        if (!value.trim()) {
+          errors[name] = "Monthly income is required.";
+        } else if (Number(value) <= 0) {
+          errors[name] = "Monthly income must be a positive number.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'payFrequency':
+        if (!value.trim()) errors[name] = "Pay frequency is required.";
+        else delete errors[name];
+        break;
+      
+      // Loan details fields
+      case 'loanType':
+      case 'loanPurpose':
+        if (!value.trim()) errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        else delete errors[name];
+        break;
+      case 'requestedAmount':
+        if (!value.trim()) {
+          errors[name] = "Requested loan amount is required.";
+        } else if (Number(value) <= 0) {
+          errors[name] = "Requested amount must be a positive number.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'tenure':
+        if (!value.trim()) {
+          errors[name] = "Loan tenure is required.";
+        } else if (Number(value) <= 0) {
+          errors[name] = "Loan tenure must be a positive number.";
+        } else {
+          delete errors[name];
+        }
+        break;
+      case 'preferredStartDate':
+        if (!value.trim()) errors[name] = "Preferred start date is required.";
+        else delete errors[name];
+        break;
+      case 'collateralType':
+      case 'collateralValue':
+        if ((formData.loanType === "Secured Personal Loan" || 
+             formData.loanType === "Auto Loan" || 
+             formData.loanType === "Mortgage") && 
+            !value.trim()) {
+          errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        } else {
+          delete errors[name];
+        }
+        break;
+      
+      // Banking information
+      case 'bankName':
+      case 'accountType':
+      case 'accountNumber':
+        if (!value.trim()) errors[name] = `${name.replace(/([A-Z])/g, ' $1').trim()} is required.`;
+        else delete errors[name];
+        break;
+      case 'routingNumber':
+        if (!value.trim()) {
+          errors[name] = "Routing number is required.";
+        } else if (value.length !== 9) {
+          errors[name] = "Routing number must be 9 digits.";
+        } else {
+          delete errors[name];
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    setFormErrors(errors);
+  };
+
   // Function to send email via EmailJS
   const handleEmailJs = () => {
     emailjs
