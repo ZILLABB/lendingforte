@@ -35,6 +35,7 @@ const nextConfig = {
     // Skip type checking during builds
     ignoreBuildErrors: true,
   },
+
 };
 
 module.exports = nextConfig;
