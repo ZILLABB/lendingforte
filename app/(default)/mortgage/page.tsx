@@ -1,7 +1,6 @@
 // import { useClient } from 'next/data-client';
 
 import MortgagePage from "@/components/mortgage/mortgage";
-import WhyChoosemortgage from "@/components/mortgage/whys";
 
 
 export const metadata = {

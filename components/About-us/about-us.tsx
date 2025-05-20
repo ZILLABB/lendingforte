@@ -3,12 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FiArrowRight, FiCheck, FiShield, FiUsers, FiAward, FiClock } from "react-icons/fi";
 import { HiOutlineLightBulb, HiOutlineScale, HiOutlineChartBar, HiOutlineUserGroup } from "react-icons/hi";
 
 export default function AboutUsPage() {
-  const [isVisible, setIsVisible] = useState(false);
   const heroRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -19,9 +18,7 @@ export default function AboutUsPage() {
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+
 
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
