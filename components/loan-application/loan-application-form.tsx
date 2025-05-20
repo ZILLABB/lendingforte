@@ -20,7 +20,7 @@ import {
   CreditCardIcon,
   LockClosedIcon
 } from "@heroicons/react/24/outline";
-import { validateCurrentStep } from "./validation-schema";
+import { validateCurrentStep } from "./validation-schema.ts";
 
 // Import step components
 import PersonalInfoStep from "./steps/personal-info-step";

@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
   },
   webpack: (config) => {
     config.resolve.fallback = {
@@ -12,9 +17,14 @@ const nextConfig = {
     };
     return config;
   },
-  experimental: {
-    esmExternals: false
-  }
-}
+  // Using modern features
+  reactStrictMode: true,
+  swcMinify: true,
+  poweredByHeader: false,
+  // Improved performance settings
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
