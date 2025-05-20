@@ -7,6 +7,7 @@ import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outl
 import MobileMenu from "./mobile-menu";
 import SimpleMobileMenu from "./simple-mobile-menu";
 import NewMobileMenu from "./new-mobile-menu";
+import FramerMobileMenu from "./framer-mobile-menu";
 import { useTheme } from "@/components/theme/theme-provider";
 
 export default function Header() {
@@ -467,7 +468,8 @@ export default function Header() {
               </div>
               {/* <MobileMenu scrolled={scrolled} /> */}
               {/* <SimpleMobileMenu scrolled={scrolled} /> */}
-              <NewMobileMenu scrolled={scrolled} />
+              {/* <NewMobileMenu scrolled={scrolled} /> */}
+              <FramerMobileMenu scrolled={scrolled} />
             </div>
           </div>
         </div>
