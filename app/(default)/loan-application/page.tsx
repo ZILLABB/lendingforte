@@ -1,16 +1,14 @@
-import LoanApplicationPage from "@/components/loan-application/loan-application";
-// import { useClient } from 'next/data-client';
+import LoanApplicationForm from "@/components/loan-application/loan-application-form";
 
 export const metadata = {
   title: "Loan Application - Lending Forte",
-  description: "Page description",
+  description: "Apply for a loan with our secure and easy-to-use online application form",
 };
 
-
-export default function loanapplication() {
+export default function LoanApplicationPage() {
   return (
     <>
-      <LoanApplicationPage />
+      <LoanApplicationForm />
     </>
   );
 }

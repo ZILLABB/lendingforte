@@ -4,8 +4,8 @@ import PersonalLoanPage from "@/components/personal-loan/personal-loan";
 import WhyChooseLendingFortePage from "@/components/personal-loan/why";
 
 export const metadata = {
-  title: "Loan Application - Lending Forte",
-  description: "Page description",
+  title: "Personal Loans - Lending Forte",
+  description: "Explore our personal loan options with competitive rates and flexible terms",
 };
 
 export default function PersonalLoan() {

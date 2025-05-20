@@ -1,33 +1,42 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useToast } from "@/components/ui/toast-provider";
+import { useErrorHandler } from "@/components/ui/error-boundary";
 import { push, ref } from "firebase/database";
-import {database} from "../config"
+import { database } from "../config";
+import { motion } from "framer-motion";
 
 export default function Newsletter() {
+  const toast = useToast();
+  const { handleError } = useErrorHandler();
   const [email, setEmail] = useState("");
+  const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleFireBase = () => {
     try {
       const dbRef = ref(database, "newsletter");
-    push(dbRef, email);
+      push(dbRef, email);
     } catch (error) {
-      toast.error("Something went wrong! Please try again later.", {
-        theme: "colored",
-      })
+      handleError(error);
+      toast.error("Something went wrong! Please try again later.");
     }
-    
   }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     const data = {
       email: email
     }
-    console.log("Form submitted:", data);
+
     emailjs
       .send(
         "service_aug4hyu",
@@ -37,25 +46,35 @@ export default function Newsletter() {
       )
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        toast.success("Thanks for subscribing to our newsletter!", {
-          theme: "colored",
-        });
+        toast.success("Thanks for subscribing to our premium newsletter!");
+        setEmail("");
       })
-      .catch(() =>
-        toast.error("Something went wrong! Please try again later.", {
-          theme: "colored",
-        })
-    );
-    handleFireBase();
+      .catch((error) => {
+        handleError(error);
+        toast.error("Something went wrong! Please try again later.");
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+        handleFireBase();
+      });
   };
 
   return (
-    <section>
-      <ToastContainer/>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative overflow-hidden">
+      {/* Premium background elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-green-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-500/5 rounded-full blur-3xl"></div>
 
-        {/* CTA box */}
-        <div className="relative bg-green-600 py-10 px-8 md:py-16 md:px-12" data-aos="fade-up">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+
+        {/* Premium CTA box */}
+        {mounted ? (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative bg-gradient-to-br from-green-600 to-green-700 py-10 px-8 md:py-16 md:px-12 rounded-2xl shadow-xl border border-green-500/20"
+          >
 
           {/* Background illustration */}
           <div className="absolute right-0 top-0 -ml-40 pointer-events-none" aria-hidden="true">
@@ -72,26 +91,105 @@ export default function Newsletter() {
 
           <div className="relative flex flex-col lg:flex-row justify-between items-center">
 
-            {/* CTA content */}
-            <div className="mb-6 lg:mr-16 lg:mb-0 text-center lg:text-left lg:w-1/2">
-              <h3 className="h3 text-white mb-2">Stay in the loop</h3>
-              <p className="text-green-200 text-lg">Join our newsletter to get top news before anyone else.</p>
-            </div>
+            {/* Premium CTA content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-8 lg:mr-16 lg:mb-0 text-center lg:text-left lg:w-1/2"
+            >
+              <span className="inline-block px-3 py-1 text-sm font-semibold text-green-100 bg-green-700/50 rounded-full mb-4 shadow-sm border border-green-500/30">
+                Premium Insights
+              </span>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Exclusive Financial Circle</h3>
+              <p className="text-green-100 text-lg mb-4">
+                Subscribe to receive premium financial insights, market trends, and exclusive offers tailored to sophisticated investors.
+              </p>
+              <ul className="text-green-200 space-y-2 mb-4">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-300 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  <span>Exclusive market analysis</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-300 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  <span>Early access to new financial products</span>
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-300 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
+                  </svg>
+                  <span>Personalized financial tips</span>
+                </li>
+              </ul>
+            </motion.div>
 
-            {/* CTA form */}
-            <form onSubmit={handleSubmit} className="w-full lg:w-1/2">
-              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:max-w-none">
-                <input type="email" className="w-full appearance-none bg-green-700 border border-green-500 focus:border-green-300 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-green-400" placeholder="Your best email…" aria-label="Your best email…" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <button type="submit" className="btn text-green-600 bg-green-100 hover:bg-white shadow" >Subscribe</button>
+            {/* Premium CTA form */}
+            <motion.form
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              onSubmit={handleSubmit}
+              className="w-full lg:w-1/2 bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-green-500/20 shadow-lg"
+            >
+              <h4 className="text-xl font-semibold text-white mb-4">Subscribe to Premium Updates</h4>
+              <div className="flex flex-col space-y-4">
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg className="w-5 h-5 text-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <input
+                    type="email"
+                    className="w-full appearance-none bg-green-700/50 border border-green-500/50 focus:border-green-300 rounded-lg pl-10 px-4 py-3 text-white placeholder-green-300 shadow-inner"
+                    placeholder="Your email address"
+                    aria-label="Your email address"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className={`w-full inline-flex justify-center items-center px-6 py-3 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-400 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-green-500/25 ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      Subscribe Now
+                      <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                      </svg>
+                    </>
+                  )}
+                </button>
               </div>
-              {/* Success message */}
-              {/* <p className="text-center lg:text-left lg:absolute mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
-            </form>
+              <p className="text-green-200 text-sm mt-4 text-center">
+                Your privacy is our priority. We'll never share your information.
+              </p>
+            </motion.form>
 
           </div>
-
-        </div>
-
+          </motion.div>
+        ) : (
+          <div className="relative bg-green-600 py-10 px-8 md:py-16 md:px-12 rounded-2xl shadow-xl border border-green-500/20">
+            {/* Placeholder for SSR */}
+            <div className="h-80"></div>
+          </div>
+        )}
       </div>
     </section>
   )

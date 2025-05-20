@@ -3,13 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { 
-  FiArrowRight, FiCheck, FiShield, FiLock, FiPercent, 
-  FiClock, FiDollarSign, FiTrendingUp, FiBriefcase, FiInfo, FiCheckCircle 
+import {
+  FiArrowRight, FiCheck, FiShield, FiLock, FiPercent,
+  FiClock, FiDollarSign, FiTrendingUp, FiBriefcase, FiInfo, FiCheckCircle
 } from "react-icons/fi";
-import { 
-  HiOutlineOfficeBuilding, HiOutlineCash, HiOutlineChartBar, 
-  HiOutlineDocumentText, HiOutlineCurrencyDollar 
+import {
+  HiOutlineOfficeBuilding, HiOutlineCash, HiOutlineChartBar,
+  HiOutlineDocumentText, HiOutlineCurrencyDollar
 } from "react-icons/hi";
 
 export default function BusinessLoanPage() {
@@ -19,23 +19,23 @@ export default function BusinessLoanPage() {
   const [interestRate, setInterestRate] = useState(7.25);
   const [loanTerm, setLoanTerm] = useState(60);
   const [showRatePopup, setShowRatePopup] = useState(false);
-  
+
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
+
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     const timer = setTimeout(() => {
       setShowRatePopup(true);
     }, 5000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,11 +43,11 @@ export default function BusinessLoanPage() {
     const principal = loanAmount;
     const monthlyRate = interestRate / 100 / 12;
     const numberOfPayments = loanTerm;
-    
-    const monthlyPayment = principal * 
-      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
+
+    const monthlyPayment = principal *
+      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-      
+
     return monthlyPayment.toFixed(2);
   };
 
@@ -65,7 +65,7 @@ export default function BusinessLoanPage() {
       },
     },
   };
-  
+
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
@@ -76,56 +76,56 @@ export default function BusinessLoanPage() {
       id: 'term',
       title: "Term Loan",
       icon: <HiOutlineDocumentText className="w-6 h-6" />,
-      description: "Traditional business loans with predictable monthly payments and competitive rates.",
+      description: "Our flagship business financing solution provides a lump sum with structured repayment schedules, ideal for major investments, expansion, or refinancing existing debt.",
       features: [
-        "Loan amounts from $25,000 to $1,000,000",
-        "Terms from 1 to 5 years",
-        "Fixed interest rates",
-        "No pre-payment penalties"
+        "Funding from $25,000 to $1,000,000",
+        "Terms from 1-7 years with fixed rates",
+        "Approval in as little as 24 hours",
+        "No prepayment penalties or hidden fees"
       ],
-      APR: "7.25%",
+      APR: "5.99%",
       recommended: true
     },
     {
       id: 'line-of-credit',
       title: "Business Line of Credit",
       icon: <HiOutlineChartBar className="w-6 h-6" />,
-      description: "Flexible financing that allows you to borrow funds as needed and only pay interest on what you use.",
+      description: "Our revolving credit facility gives you on-demand access to working capital when you need it, with the flexibility to draw funds repeatedly as you repay without reapplying.",
       features: [
-        "Credit lines up to $500,000",
-        "Draw funds as needed",
-        "Pay interest only on what you use",
-        "Funds replenish as you repay"
+        "Credit lines from $25,000 to $500,000",
+        "12-24 month revolving terms",
+        "Interest only on drawn amounts",
+        "Weekly or monthly payment options"
       ],
-      APR: "8.99%",
+      APR: "7.99%",
       recommended: false
     },
     {
       id: 'equipment',
       title: "Equipment Financing",
       icon: <HiOutlineOfficeBuilding className="w-6 h-6" />,
-      description: "Finance new or used equipment with the equipment itself serving as collateral.",
+      description: "Acquire essential equipment while preserving cash flow with our equipment financing solutions that use the purchased assets as collateral, potentially offering tax advantages.",
       features: [
-        "Up to 100% of equipment value",
-        "Terms up to 7 years",
-        "Fixed monthly payments",
-        "Potential tax benefits"
+        "Finance up to 100% of equipment value",
+        "Extended terms up to 84 months",
+        "Potential Section 179 tax benefits",
+        "New and used equipment eligible"
       ],
-      APR: "6.75%",
+      APR: "6.25%",
       recommended: false
     },
     {
       id: 'sba',
       title: "SBA Loans",
       icon: <HiOutlineCurrencyDollar className="w-6 h-6" />,
-      description: "Government-backed loans with favorable terms for small businesses.",
+      description: "As an SBA Preferred Lender, we offer government-guaranteed loans with favorable terms, lower down payments, and extended repayment periods for qualified small businesses.",
       features: [
-        "Loan amounts up to $5,000,000",
-        "Lower down payments",
-        "Longer repayment terms",
-        "Competitive interest rates"
+        "Funding up to $5,000,000 (7(a) loans)",
+        "Down payments as low as 10%",
+        "Terms up to 25 years for real estate",
+        "Industry-leading approval timelines"
       ],
-      APR: "6.25%",
+      APR: "5.75%",
       recommended: false
     },
   ];
@@ -167,21 +167,21 @@ export default function BusinessLoanPage() {
     {
       name: "Sarah Johnson",
       business: "Johnson Manufacturing Co.",
-      quote: "The business loan allowed us to purchase new equipment and increase production by 40% within just three months.",
+      quote: "LendingForte's $250,000 equipment loan enabled us to purchase CNC machinery that increased production capacity by 42% and reduced per-unit costs by 28%. Their manufacturing industry specialist structured terms that aligned perfectly with our projected ROI timeline.",
       amount: 250000,
       usedFor: "Equipment Purchase"
     },
     {
       name: "Michael Rodriguez",
       business: "Eastside Auto Repair",
-      quote: "We were able to open a second location and hire five new mechanics. Our revenue has doubled since securing funding.",
+      quote: "After being declined by our bank of 12 years, LendingForte approved our $175,000 expansion loan in just 3 days. Their team understood the automotive service industry's unique cash flow patterns and helped us open our second location, which now generates $83,000 in monthly revenue.",
       amount: 175000,
       usedFor: "Business Expansion"
     },
     {
       name: "Jennifer Chen",
       business: "Bloom Retail Group",
-      quote: "The line of credit helped us manage seasonal inventory purchases without affecting our day-to-day operations.",
+      quote: "Our $100,000 line of credit has been instrumental in managing seasonal inventory fluctuations. Unlike previous financing, LendingForte's revolving structure allows us to draw funds strategically before peak seasons and repay during high-revenue periods, saving us approximately $12,000 annually in interest.",
       amount: 100000,
       usedFor: "Inventory & Working Capital"
     }
@@ -190,29 +190,33 @@ export default function BusinessLoanPage() {
   const faqItems = [
     {
       question: "How much can I borrow for my business?",
-      answer: "Our business loans range from $25,000 to $1,000,000 depending on your business revenue, time in business, and credit profile. Most qualified businesses are eligible to borrow up to 10-15% of their annual revenue."
+      answer: "Our business financing solutions range from $25,000 to $5,000,000 based on your company's revenue, profitability, time in business, and industry. Most established businesses qualify for 10-20% of their annual revenue, while our SBA loans can provide up to 100% of project costs with as little as 10% down payment for qualified borrowers."
     },
     {
-      question: "What documents do I need to apply?",
-      answer: "You'll typically need to provide 3-6 months of business bank statements, basic business information, your last two years of business tax returns, and a simple one-page application. SBA loans may require additional documentation."
+      question: "What are your qualification requirements?",
+      answer: "Our standard requirements include: 1) Minimum 1 year in business, 2) $100,000+ in annual revenue, 3) 600+ FICO score for business owners, and 4) Positive cash flow demonstrated in recent months. However, our industry-specific underwriting models evaluate multiple factors beyond these baseline criteria, allowing us to approve businesses that may not qualify with traditional lenders."
     },
     {
-      question: "How long does the application process take?",
-      answer: "Our streamlined application can be completed in about 10 minutes. Most applicants receive a decision within 24 hours, and funding can be available as quickly as 1-3 business days after approval."
+      question: "How does your application process work?",
+      answer: "Our digital application takes approximately 10-15 minutes to complete. After submission, you'll be assigned a dedicated Business Funding Specialist who will guide you through our streamlined process. Initial decisions are typically provided within 24 hours, with funding available in as little as 2 business days after document verification and final approval."
     },
     {
-      question: "Do I need collateral for a business loan?",
-      answer: "Many of our business loan options do not require specific collateral. However, all business loans do require a personal guarantee from the primary business owner(s), and some loan types may require business assets as collateral."
+      question: "Do you require collateral for business loans?",
+      answer: "Our Term Loans and Lines of Credit up to $250,000 are typically unsecured, requiring only a personal guarantee. For larger amounts, we may require a UCC-1 filing on business assets. Equipment Financing uses the purchased equipment as collateral, while SBA loans may require available business or personal assets depending on loan size and purpose. We work to structure solutions that minimize collateral requirements while offering competitive rates."
     },
     {
-      question: "What credit score do I need to qualify?",
-      answer: "While we consider multiple factors beyond just credit scores, business owners with personal credit scores above 650 typically qualify for our most competitive rates. However, we have financing options available for credit scores as low as 580."
+      question: "How do you determine interest rates?",
+      answer: "Our rates are determined by several factors including: business credit profile, personal credit of owners, time in business, industry type, annual revenue, profitability metrics, and loan type/term. Rates currently range from 5.75% to 12.99% APR for term loans, with SBA loans offering our most competitive rates for qualified borrowers. We provide transparent rate quotes with no impact to your credit score."
+    },
+    {
+      question: "What makes LendingForte different from other business lenders?",
+      answer: "Three key differentiators: 1) Our industry-specific underwriting models that understand the unique cash flow patterns of your business type, 2) Our hybrid technology/human approach that combines algorithmic efficiency with personalized guidance from sector specialists, and 3) Our commitment to transparency with no hidden fees, no prepayment penalties, and clear terms. These advantages have resulted in our 92% client satisfaction rating and 78% repeat borrower rate."
     }
   ];
 
   const industries = [
-    "Retail", "Healthcare", "Technology", "Manufacturing", "Construction", 
-    "Professional Services", "Restaurant", "Automotive", "Transportation", 
+    "Retail", "Healthcare", "Technology", "Manufacturing", "Construction",
+    "Professional Services", "Restaurant", "Automotive", "Transportation",
     "Real Estate", "Wholesale", "Education"
   ];
 
@@ -221,7 +225,7 @@ export default function BusinessLoanPage() {
       {/* Floating Rate Alert */}
       <AnimatePresence>
         {showRatePopup && (
-          <motion.div 
+          <motion.div
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
@@ -237,21 +241,21 @@ export default function BusinessLoanPage() {
                 <h4 className="font-bold text-white">Limited Time Offer</h4>
                 <p className="text-green-100 text-sm mb-2">Business loans starting at 6.25% APR for qualified applicants</p>
                 <div className="flex space-x-2">
-                  <button 
+                  <button
                     onClick={() => setShowRatePopup(false)}
                     className="text-xs text-green-200 hover:text-white"
                   >
                     Dismiss
                   </button>
-                  <Link 
-                    href="/business-loan/special-offer" 
+                  <Link
+                    href="/business-loan/special-offer"
                     className="text-xs font-medium text-white hover:text-green-200"
                   >
                     Learn More
                   </Link>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setShowRatePopup(false)}
                 className="ml-4 text-white/70 hover:text-white"
               >
@@ -261,9 +265,9 @@ export default function BusinessLoanPage() {
           </motion.div>
         )}
       </AnimatePresence>
-      
+
       {/* Hero Section */}
-      <section 
+      <section
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black"
       >
@@ -277,50 +281,60 @@ export default function BusinessLoanPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 z-10 pt-20 pb-24">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
             style={{ opacity: heroOpacity, scale: heroScale }}
             className="max-w-4xl mx-auto text-center"
           >
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.7 }}
               className="text-4xl md:text-6xl font-bold leading-tight mb-6"
             >
-              Business Funding <span className="text-green-400">Solutions</span> <br />
-              Tailored to Your Growth
+              Strategic <span className="text-green-400">Capital Solutions</span> <br />
+              For Business Excellence
             </motion.h1>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7 }}
-              className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto"
+              className="text-xl text-gray-300 mb-4 max-w-3xl mx-auto"
             >
-              Access the capital your business needs with flexible terms, 
-              competitive rates, and a simple application process designed for busy entrepreneurs.
+              Access growth-focused financing with industry-specific underwriting,
+              competitive rates from 5.99% APR, and funding in as little as 48 hours.
             </motion.p>
-            
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.7 }}
+              className="text-lg text-gray-400 mb-8 max-w-3xl mx-auto"
+            >
+              Our business lending specialists understand your industry's unique challenges and opportunities,
+              providing tailored solutions that align with your strategic objectives.
+            </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.7 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Link href="/business-loan/application" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-medium transition-colors shadow-lg">
-                Check Your Rate
+              <Link href="/contact-us" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-medium transition-colors shadow-lg flex items-center justify-center">
+                Contact Us <span className="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">Free Consultation</span>
               </Link>
-              <Link href="/business-loan/options" className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-medium transition-colors backdrop-blur-sm">
-                Explore Loan Options
+              <Link href="/business-loan/options" className="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-full font-medium transition-colors backdrop-blur-sm flex items-center justify-center">
+                Explore Loan Options <FiArrowRight className="ml-2" />
               </Link>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.7 }}
@@ -333,19 +347,19 @@ export default function BusinessLoanPage() {
                 </li>
                 <li className="flex items-center">
                   <FiDollarSign className="mr-3 text-green-400 flex-shrink-0" />
-                  <p className="text-gray-300">Loans from $10K to $5M</p>
+                  <p className="text-gray-300">Loans from $25K to $5M</p>
                 </li>
                 <li className="flex items-center">
                   <FiLock className="mr-3 text-green-400 flex-shrink-0" />
-                  <p className="text-gray-300">Check rates with no credit impact</p>
+                  <p className="text-gray-300">97% approval rate for qualified businesses</p>
                 </li>
               </ul>
             </motion.div>
           </motion.div>
         </div>
-        
+
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.7 }}
@@ -353,13 +367,13 @@ export default function BusinessLoanPage() {
           >
             <p className="text-gray-400 mb-2">Scroll to explore</p>
             <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center">
-              <motion.div 
-                animate={{ 
+              <motion.div
+                animate={{
                   y: [0, 8, 0],
                 }}
-                transition={{ 
+                transition={{
                   repeat: Infinity,
-                  duration: 1.5 
+                  duration: 1.5
                 }}
                 className="w-1.5 h-1.5 bg-white rounded-full mt-2"
               />
@@ -367,7 +381,7 @@ export default function BusinessLoanPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Loan Types Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -379,16 +393,19 @@ export default function BusinessLoanPage() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <div className="inline-block px-4 py-1 rounded-full bg-green-900/30 text-green-400 text-sm font-medium mb-4">
-              Flexible Financing Solutions
+              Strategic Business Capital
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Choose the Right <span className="text-green-400">Business Loan</span> for Your Needs
+              Specialized <span className="text-green-400">Financing Solutions</span> by Industry
             </h2>
-            <p className="text-gray-300 text-lg">
-              We offer a variety of business financing options designed to address different business challenges and opportunities.
+            <p className="text-gray-300 text-lg mb-4">
+              Our industry-specific underwriting models recognize the unique cash flow patterns and capital needs of your business sector.
+            </p>
+            <p className="text-gray-400 text-md">
+              Each financing solution is tailored to align with your business objectives, whether you're expanding operations, managing working capital, or investing in growth opportunities.
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {businessLoanTypes.map((type, index) => (
               <motion.div
@@ -406,15 +423,15 @@ export default function BusinessLoanPage() {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="p-6">
                   <div className="p-3 bg-green-900/30 rounded-lg w-fit mb-4">
                     {type.icon}
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-white mb-2">{type.title}</h3>
                   <p className="text-gray-300 mb-4">{type.description}</p>
-                  
+
                   <ul className="space-y-3 mb-6">
                     {type.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
@@ -423,18 +440,18 @@ export default function BusinessLoanPage() {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700">
                     <div>
                       <p className="text-gray-400 text-xs">Starting at</p>
                       <p className="text-xl font-bold text-green-400">{type.APR} APR</p>
                     </div>
-                    
+
                     <Link
-                      href={`/business-loan/${type.id}`}
+                      href="/contact-us"
                       className="inline-flex items-center font-medium text-green-400 hover:text-green-300"
                     >
-                      Learn More <FiArrowRight className="ml-1.5" />
+                      Contact Us <FiArrowRight className="ml-1.5" />
                     </Link>
                   </div>
                 </div>
@@ -443,7 +460,7 @@ export default function BusinessLoanPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Calculator Section */}
       <section className="py-20 bg-black/60">
         <div className="container mx-auto px-4">
@@ -463,7 +480,7 @@ export default function BusinessLoanPage() {
               <p className="text-gray-300 mb-8 text-lg">
                 See how different loan amounts, terms, and rates affect your monthly payments before you apply.
               </p>
-              
+
               <div className="space-y-8">
                 <div>
                   <div className="flex justify-between mb-2">
@@ -484,7 +501,7 @@ export default function BusinessLoanPage() {
                     <span>$5,000,000</span>
                   </div>
                 </div>
-                
+
                 <div>
                   <div className="flex justify-between mb-2">
                     <label className="text-gray-300">Interest Rate</label>
@@ -504,7 +521,7 @@ export default function BusinessLoanPage() {
                     <span>24%</span>
                   </div>
                 </div>
-                
+
                 <div>
                   <div className="flex justify-between mb-2">
                     <label className="text-gray-300">Loan Term (months)</label>
@@ -526,7 +543,7 @@ export default function BusinessLoanPage() {
                 </div>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -535,7 +552,7 @@ export default function BusinessLoanPage() {
               className="bg-gray-800 rounded-xl border border-gray-700 p-8 shadow-lg"
             >
               <h3 className="text-xl font-bold text-white mb-6">Loan Summary</h3>
-              
+
               <div className="space-y-4 mb-8">
                 <div className="flex justify-between">
                   <span className="text-gray-300">Loan Amount</span>
@@ -556,7 +573,7 @@ export default function BusinessLoanPage() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-green-900/20 p-4 rounded-lg mb-6">
                 <div className="flex">
                   <FiInfo className="text-green-400 mr-3 flex-shrink-0 mt-1" />
@@ -565,14 +582,14 @@ export default function BusinessLoanPage() {
                   </p>
                 </div>
               </div>
-              
-              <Link 
-                href="/loan-application" 
+
+              <Link
+                href="/contact-us"
                 className="block w-full bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg text-center transition-colors"
               >
-                Apply Now
+                Contact Us
               </Link>
-              
+
               <div className="flex items-center justify-center mt-4 text-sm text-gray-400">
                 <FiLock className="mr-2 text-green-400" />
                 <span>Checking rates won't affect your credit score</span>
@@ -581,7 +598,7 @@ export default function BusinessLoanPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Process Timeline Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -602,16 +619,16 @@ export default function BusinessLoanPage() {
               We've streamlined the business loan process to get you funded quickly with minimal paperwork.
             </p>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Progress Line */}
               <div className="absolute top-0 bottom-0 left-4 w-0.5 bg-green-900/30 hidden md:block"></div>
-              
+
               {/* Timeline Steps */}
               <div className="space-y-8">
                 {loanProcess.map((step, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -642,9 +659,9 @@ export default function BusinessLoanPage() {
                 ))}
               </div>
             </div>
-            
+
             <div className="text-center mt-16">
-              <Link 
+              <Link
                 href="/business-loan/application"
                 className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg"
               >
@@ -654,7 +671,7 @@ export default function BusinessLoanPage() {
           </div>
         </div>
       </section>
-      
+
       {/* Industries Section */}
       <section className="py-20 bg-black/60">
         <div className="container mx-auto px-4">
@@ -675,7 +692,7 @@ export default function BusinessLoanPage() {
               We understand the unique financial needs of different industries and tailor our financing solutions accordingly.
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {industries.map((industry, index) => (
               <motion.div
@@ -690,8 +707,8 @@ export default function BusinessLoanPage() {
               </motion.div>
             ))}
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -704,7 +721,7 @@ export default function BusinessLoanPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Testimonials Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -718,8 +735,8 @@ export default function BusinessLoanPage() {
             >
               Customer Stories
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -738,10 +755,10 @@ export default function BusinessLoanPage() {
               Read how our business loans have helped companies like yours grow and succeed.
             </motion.p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -785,8 +802,8 @@ export default function BusinessLoanPage() {
               </motion.div>
             ))}
           </div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -799,7 +816,7 @@ export default function BusinessLoanPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Loan Comparison Table */}
       <section className="py-20 bg-black/40">
         <div className="container mx-auto px-4">
@@ -820,7 +837,7 @@ export default function BusinessLoanPage() {
               Compare our business loan options to find the best fit for your specific needs.
             </p>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -916,7 +933,7 @@ export default function BusinessLoanPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* FAQ Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -930,8 +947,8 @@ export default function BusinessLoanPage() {
             >
               Frequently Asked Questions
             </motion.div>
-            
-            <motion.h2 
+
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -941,7 +958,7 @@ export default function BusinessLoanPage() {
               Common Questions About <span className="text-green-400">Business Loans</span>
             </motion.h2>
           </div>
-          
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"
@@ -967,9 +984,9 @@ export default function BusinessLoanPage() {
               </div>
             ))}
           </motion.div>
-          
+
           <div className="text-center mt-12">
-            <Link 
+            <Link
               href="/business-loan/faq"
               className="inline-flex items-center text-green-400 font-medium hover:text-green-300"
             >
@@ -978,11 +995,11 @@ export default function BusinessLoanPage() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-20 bg-black/40">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -991,27 +1008,27 @@ export default function BusinessLoanPage() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mt-20 -mr-20"></div>
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -mb-10 -ml-10"></div>
-            
+
             <div className="inline-block px-4 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6 backdrop-blur-sm">
               Ready to Grow Your Business?
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">
               Get Funding in as Little as 24 Hours
             </h2>
             <p className="text-green-50 mb-8 max-w-2xl mx-auto relative z-10 text-lg">
               Apply in minutes, receive a decision today, and get funds deposited directly to your business account.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/loan-application" className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-full font-medium transition-colors shadow-md hover:shadow-lg relative z-10">
-                Apply Now
+              <Link href="/contact-us" className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-full font-medium transition-colors shadow-md hover:shadow-lg relative z-10">
+                Contact Us
               </Link>
               <Link href="tel:+1-(315)-949-8539" className="bg-transparent text-white border border-white/30 hover:bg-white/10 px-8 py-4 rounded-full font-medium transition-colors shadow-md hover:shadow-lg relative z-10">
-                Speak With a Loan Specialist
+                Speak With a Specialist
               </Link>
             </div>
-            
+
             <div className="mt-8 flex flex-wrap justify-center gap-6">
               <div className="flex items-center text-white">
                 <FiShield className="mr-2" />
