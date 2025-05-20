@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { useToast } from "@/components/ui/toast-provider";
 import { useErrorHandler } from "@/components/ui/error-boundary";
 import { push, ref } from "firebase/database";

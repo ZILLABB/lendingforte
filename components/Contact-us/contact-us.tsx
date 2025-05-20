@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiMail, FiPhone, FiMapPin, FiSend, FiUser } from "react-icons/fi";
@@ -17,7 +17,7 @@ export default function ContactPage() {
     subject: "",
     phone: ""
   });
-  
+
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -39,7 +39,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    
+
     // Validate form
     if (!form.fullName || !form.email || !form.message) {
       toast.error("Please fill all required fields", {
@@ -48,14 +48,14 @@ export default function ContactPage() {
       setLoading(false);
       return;
     }
-    
+
     emailjs
       .send("service_aug4hyu", "template_ff4yied", form, "mRm23xSD-WMIu8ZDK")
       .then(() => {
         toast.success("Your message has been sent successfully!", {
           theme: "colored",
         });
-        
+
         // Clear form after successful submission
         setForm({
           fullName: "",
@@ -73,7 +73,7 @@ export default function ContactPage() {
       .finally(() => {
         setLoading(false);
       });
-    
+
     handleFireBase();
   };
 
@@ -85,11 +85,11 @@ export default function ContactPage() {
   return (
     <>
       <ToastContainer position="top-right" autoClose={5000} />
-      
+
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-green-50 to-white dark:from-gray-900 dark:to-gray-800 pt-20 pb-12">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
@@ -104,13 +104,13 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-      
+
       {/* Main Content */}
       <div className="container mx-auto py-12 px-4">
         <div className="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
           <div className="grid md:grid-cols-12 gap-0">
             {/* Contact Information */}
-            <motion.div 
+            <motion.div
               variants={fadeIn}
               initial="initial"
               animate="animate"
@@ -118,7 +118,7 @@ export default function ContactPage() {
             >
               <div className="h-full flex flex-col">
                 <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
-                
+
                 <div className="space-y-6 mb-auto">
                   <div className="flex items-start gap-4">
                     <div className="bg-green-500/30 rounded-full w-10 h-10 p-2.5 flex items-center justify-center flex-shrink-0">
@@ -132,7 +132,7 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="bg-green-500/30 rounded-full w-10 h-10 p-2.5 flex items-center justify-center flex-shrink-0">
                       <FiPhone className="w-5 h-5" />
@@ -146,7 +146,7 @@ export default function ContactPage() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="bg-green-500/30 rounded-full w-10 h-10 p-2.5 flex items-center justify-center flex-shrink-0">
                       <FiMail className="w-5 h-5" />
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Social Media Icons */}
                 <div className="mt-8 pt-8 border-t border-green-500/30">
                   <h3 className="font-medium mb-4">Connect With Us</h3>
@@ -192,9 +192,9 @@ export default function ContactPage() {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Contact Form */}
-            <motion.div 
+            <motion.div
               variants={fadeIn}
               initial="initial"
               animate="animate"
@@ -204,11 +204,11 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
                 Send Us a Message
               </h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="relative">
-                    <label 
+                    <label
                       htmlFor="fullName"
                       className="absolute -top-2.5 left-3 bg-white dark:bg-gray-800 px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
                     >
@@ -230,9 +230,9 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="relative">
-                    <label 
+                    <label
                       htmlFor="email"
                       className="absolute -top-2.5 left-3 bg-white dark:bg-gray-800 px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
                     >
@@ -255,10 +255,10 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="relative">
-                    <label 
+                    <label
                       htmlFor="phone"
                       className="absolute -top-2.5 left-3 bg-white dark:bg-gray-800 px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
                     >
@@ -279,9 +279,9 @@ export default function ContactPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="relative">
-                    <label 
+                    <label
                       htmlFor="subject"
                       className="absolute -top-2.5 left-3 bg-white dark:bg-gray-800 px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
                     >
@@ -303,9 +303,9 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="relative">
-                  <label 
+                  <label
                     htmlFor="message"
                     className="absolute -top-2.5 left-3 bg-white dark:bg-gray-800 px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
                   >
@@ -321,7 +321,7 @@ export default function ContactPage() {
                     required
                   ></textarea>
                 </div>
-                
+
                 <div>
                   <button
                     className={`bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-3 px-6 rounded-lg flex items-center gap-2 transition-all ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
@@ -348,9 +348,9 @@ export default function ContactPage() {
             </motion.div>
           </div>
         </div>
-        
+
         {/* Map Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
