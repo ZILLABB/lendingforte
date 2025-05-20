@@ -5,7 +5,7 @@ import Image from "next/image";
 import { FaChevronDown, FaCog, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
 import MobileMenu from "./mobile-menu";
-import { useTheme } from "@/components/theme/theme-provider";
+import { useTheme } from "./theme-provider";
 
 export default function Header() {
   const [showLoanDropdown, setShowLoanDropdown] = useState(false);
