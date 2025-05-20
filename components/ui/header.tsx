@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaChevronDown, FaCog, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
 import MobileMenu from "./mobile-menu";
+import SimpleMobileMenu from "./simple-mobile-menu";
 import { useTheme } from "@/components/theme/theme-provider";
 
 export default function Header() {
@@ -463,7 +464,8 @@ export default function Header() {
                   </div>
                 )}
               </div>
-              <MobileMenu scrolled={scrolled} />
+              {/* <MobileMenu scrolled={scrolled} /> */}
+              <SimpleMobileMenu scrolled={scrolled} />
             </div>
           </div>
         </div>
