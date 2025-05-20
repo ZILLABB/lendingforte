@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaChevronDown, FaPhoneAlt, FaEnvelope, FaCog } from "react-icons/fa";
 import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
-import { useTheme } from "../../components/theme/theme-provider";
+import { useTheme } from "./theme-provider";
 
 interface MobileMenuProps {
   scrolled: boolean;
