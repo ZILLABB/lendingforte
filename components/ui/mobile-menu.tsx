@@ -4,9 +4,9 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronDown, FaPhoneAlt, FaEnvelope, FaCog } from "react-icons/fa";
+import { FaChevronDown, FaPhoneAlt, FaEnvelope, FaCog, FaMapMarkerAlt } from "react-icons/fa";
 import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
-import { useTheme } from "./theme-provider";
+import { useTheme } from "@/components/theme/theme-provider";
 
 interface MobileMenuProps {
   scrolled: boolean;
@@ -155,21 +155,21 @@ export default function MobileMenu({ scrolled }: MobileMenuProps) {
       </button>
 
       {/* Mobile menu overlay with framer-motion */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileNavOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-30 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
             onClick={() => setMobileNavOpen(false)}
           />
         )}
       </AnimatePresence>
 
       {/* Mobile menu panel with framer-motion */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileNavOpen && (
           <motion.div
             ref={mobileNav}
@@ -177,7 +177,7 @@ export default function MobileMenu({ scrolled }: MobileMenuProps) {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed top-0 right-0 bottom-0 z-30 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl dark:shadow-gray-950/50"
+            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-white dark:bg-gray-900 shadow-2xl dark:shadow-gray-950/50"
           >
             <div className="overflow-y-auto h-full">
               <div className="p-6 pb-4 border-b border-gray-100 dark:border-gray-800">
