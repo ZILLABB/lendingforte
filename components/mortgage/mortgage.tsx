@@ -3,13 +3,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { 
-  FiArrowRight, FiCheck, FiShield, FiLock, FiPercent, 
+import {
+  FiArrowRight, FiCheck, FiShield, FiLock, FiPercent,
   FiClock, FiDollarSign, FiHome, FiTrendingDown
 } from "react-icons/fi";
-import { 
-  HiOutlineDocumentText, HiOutlineHome, HiOutlineCash, 
-  HiOutlineChartBar, HiOutlineCheckCircle 
+import {
+  HiOutlineDocumentText, HiOutlineHome, HiOutlineCash,
+  HiOutlineChartBar, HiOutlineCheckCircle
 } from "react-icons/hi";
 
 export default function MortgagePage() {
@@ -19,23 +19,23 @@ export default function MortgagePage() {
   const [interestRate, setInterestRate] = useState(6.25);
   const [loanTerm, setLoanTerm] = useState(30);
   const [showRatePopup, setShowRatePopup] = useState(false);
-  
+
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"]
   });
-  
+
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
   const heroScale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   useEffect(() => {
     setIsVisible(true);
-    
+
     const timer = setTimeout(() => {
       setShowRatePopup(true);
     }, 5000);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -43,11 +43,11 @@ export default function MortgagePage() {
     const principal = loanAmount;
     const monthlyRate = interestRate / 100 / 12;
     const numberOfPayments = loanTerm * 12;
-    
-    const monthlyPayment = principal * 
-      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) / 
+
+    const monthlyPayment = principal *
+      (monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
       (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
-      
+
     return monthlyPayment.toFixed(2);
   };
 
@@ -65,7 +65,7 @@ export default function MortgagePage() {
       },
     },
   };
-  
+
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
@@ -76,56 +76,56 @@ export default function MortgagePage() {
       id: 'fixed',
       title: "Fixed-Rate Mortgage",
       icon: <HiOutlineCheckCircle className="w-6 h-6" />,
-      description: "Lock in your rate for the entire loan term with predictable monthly payments.",
+      description: "Our most popular option provides stability with a guaranteed interest rate and consistent monthly principal and interest payments throughout the entire loan term.",
       features: [
-        "Rate never changes during loan term",
-        "Predictable monthly payments",
+        "Rate locked for the full loan term",
+        "Immune to market fluctuations",
         "15, 20, and 30-year terms available",
-        "Stability in fluctuating markets"
+        "No payment surprises for easier budgeting"
       ],
-      APR: "6.25%",
+      APR: "5.85%",
       recommended: true
     },
     {
       id: 'adjustable',
       title: "Adjustable-Rate Mortgage",
       icon: <HiOutlineChartBar className="w-6 h-6" />,
-      description: "Start with a lower fixed rate that can adjust after the initial period.",
+      description: "Secure a lower initial fixed rate for 5, 7, or 10 years before adjusting annually based on market conditions, potentially saving thousands in interest during the initial period.",
       features: [
-        "Lower initial rate than fixed mortgages",
-        "5/1, 7/1, and 10/1 ARM options",
-        "Rate caps limit how much rates can rise",
-        "Good for those who plan to sell/refinance"
+        "Initial rates 0.5-0.75% lower than fixed",
+        "5/1, 7/1, and 10/1 ARM structures",
+        "Rate adjustment caps for protection",
+        "Ideal for shorter-term homeownership"
       ],
-      APR: "5.75%",
+      APR: "5.25%",
       recommended: false
     },
     {
       id: 'jumbo',
-      title: "Jumbo Loan",
+      title: "Jumbo Mortgage",
       icon: <HiOutlineCash className="w-6 h-6" />,
-      description: "Finance high-value properties above conventional loan limits.",
+      description: "Specialized financing for luxury properties and high-cost markets with loan amounts exceeding conventional limits ($726,200 in most counties), with competitive rates for qualified borrowers.",
       features: [
-        "Finance luxury and high-cost properties",
+        "Finance properties up to $5 million",
         "Fixed and adjustable rate options",
-        "Access to premium property markets",
-        "Competitive rates for qualified borrowers"
+        "Interest-only payment options available",
+        "Relationship discounts for qualified clients"
       ],
-      APR: "6.50%",
+      APR: "6.15%",
       recommended: false
     },
     {
       id: 'fha',
       title: "FHA Loan",
       icon: <HiOutlineHome className="w-6 h-6" />,
-      description: "Government-backed loans with flexible qualifying requirements.",
+      description: "Government-backed mortgages designed for homebuyers with limited down payment funds or credit challenges, featuring more flexible qualification requirements than conventional loans.",
       features: [
         "Down payments as low as 3.5%",
-        "More flexible credit requirements",
-        "Lower closing costs possible",
-        "Great for first-time homebuyers"
+        "Qualifying credit scores from 580+",
+        "Gift funds allowed for down payment",
+        "Streamlined refinance options available"
       ],
-      APR: "6.35%",
+      APR: "5.99%",
       recommended: false
     },
   ];
@@ -168,7 +168,7 @@ export default function MortgagePage() {
       name: "Sarah & Michael Chen",
       role: "First-time Homebuyers",
       location: "Portland, OR",
-      quote: "As first-time homebuyers, we were intimidated by the mortgage process. The team broke everything down for us and found us an incredible rate that fit our budget perfectly.",
+      quote: "As first-time homebuyers with a 682 credit score, we were declined by two banks before LendingForte approved our FHA loan with just 3.5% down. Our mortgage specialist explained every step, secured us a 5.85% rate, and closed in just 24 days—saving us $187/month compared to rent.",
       image: "/images/testimonials/couple1.jpg",
       rating: 5,
     },
@@ -176,7 +176,7 @@ export default function MortgagePage() {
       name: "James Rodriguez",
       role: "Property Investor",
       location: "Miami, FL",
-      quote: "I've financed multiple investment properties, and this was by far the smoothest mortgage process I've experienced. The jumbo loan terms were more competitive than any other lender.",
+      quote: "LendingForte's jumbo mortgage program financed my $1.2M investment property with 20% down and a 6.15% rate—0.4% lower than competing offers. Their portfolio underwriting approach recognized my investment strategy, and their digital closing process saved me hours of paperwork.",
       image: "/images/testimonials/person2.jpg",
       rating: 5,
     },
@@ -184,7 +184,7 @@ export default function MortgagePage() {
       name: "Olivia Thompson",
       role: "Refinance Customer",
       location: "Chicago, IL",
-      quote: "Refinancing our mortgage saved us over $450 per month and let us tap some equity for a major home renovation. The entire process took less than 3 weeks!",
+      quote: "Refinancing our 30-year mortgage to a 20-year term with LendingForte reduced our rate from 7.25% to 5.65%, saving us $463 monthly while cutting 7 years off our loan. We simultaneously accessed $45,000 in equity for our kitchen renovation with no points or origination fees.",
       image: "/images/testimonials/person3.jpg",
       rating: 5,
     },
@@ -195,7 +195,7 @@ export default function MortgagePage() {
       {/* Rate Alert Popup */}
       <AnimatePresence>
         {showRatePopup && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
@@ -210,7 +210,7 @@ export default function MortgagePage() {
                 <div className="ml-4 flex-1">
                   <div className="flex justify-between items-start">
                     <h4 className="text-white dark:text-white font-bold text-lg">Rate Alert</h4>
-                    <button 
+                    <button
                       onClick={() => setShowRatePopup(false)}
                       className="text-gray-400 hover:text-gray-300 dark:text-gray-400 dark:hover:text-gray-300"
                     >
@@ -223,7 +223,7 @@ export default function MortgagePage() {
                     Mortgage rates just dropped to <span className="font-bold text-green-400 dark:text-green-400">6.25%</span> for 30-year fixed. Lock in before they rise again!
                   </p>
                   <div className="mt-3">
-                    <Link 
+                    <Link
                       href="/mortgage/rates"
                       className="text-sm font-medium text-green-400 hover:text-green-300 dark:text-green-400 dark:hover:text-green-300 inline-flex items-center"
                     >
@@ -242,13 +242,13 @@ export default function MortgagePage() {
         {/* Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-black to-black opacity-80"></div>
-          
+
           <div className="absolute top-0 -right-1/4 w-1/2 h-1/2 bg-green-900/10 dark:bg-green-900/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 -left-1/4 w-1/2 h-1/2 bg-emerald-900/10 dark:bg-emerald-900/10 rounded-full blur-3xl"></div>
-          
+
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-32 h-32 bg-green-900/10 dark:bg-green-900/10 rounded-full blur-2xl"></div>
           <div className="absolute bottom-1/4 left-1/4 w-48 h-48 bg-emerald-900/10 dark:bg-emerald-900/10 rounded-full blur-2xl"></div>
-          
+
           <div className="hidden lg:block absolute right-[5%] bottom-[10%] w-64 h-64">
             <Image
               src="/images/mortgage/house-illustration.png"
@@ -259,13 +259,13 @@ export default function MortgagePage() {
             />
           </div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="container mx-auto px-4 z-10 relative"
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.7 }}
@@ -273,39 +273,43 @@ export default function MortgagePage() {
             >
               <div className="flex items-center mb-6 space-x-3">
                 <span className="inline-block px-3 py-1 bg-green-900/40 dark:bg-green-900/40 text-green-400 dark:text-green-400 text-sm font-medium rounded-full">
-                  Limited Time
+                  Market Update
                 </span>
                 <span className="text-gray-300 dark:text-gray-300 text-sm font-medium">
-                  Rates starting at 6.25% APR
+                  Rates as low as 5.85% APR (5.99% APR)
                 </span>
               </div>
-              
+
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
-                <span className="block">Turn Your House</span>
+                <span className="block">Mortgage Solutions</span>
                 <span className="bg-gradient-to-r from-green-400 via-green-500 to-emerald-600 dark:from-green-400 dark:via-green-500 dark:to-emerald-600 bg-clip-text text-transparent">
-                  Into Your Dream Home
+                  Tailored to Your Future
                 </span>
               </h1>
-              
-              <p className="text-lg md:text-xl text-gray-300 dark:text-gray-300 mb-8 max-w-xl">
-                Find the perfect mortgage solution with competitive rates, personalized service, and a seamless digital experience.
+
+              <p className="text-lg md:text-xl text-gray-300 dark:text-gray-300 mb-4 max-w-xl">
+                Access industry-leading mortgage products with competitive rates, flexible terms, and a streamlined digital application process designed for today's homebuyers.
               </p>
-              
+
+              <p className="text-md text-gray-400 dark:text-gray-400 mb-8 max-w-xl">
+                Whether you're a first-time buyer, refinancing, or purchasing your dream home, our mortgage specialists provide personalized guidance every step of the way.
+              </p>
+
               <div className="flex flex-wrap items-center gap-4 mb-8">
-                <Link 
-                  href="/mortgage/calculator" 
+                <Link
+                  href="/mortgage/pre-approval"
                   className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-lg font-medium transition-colors shadow-lg hover:shadow-green-900/20 flex items-center"
+                >
+                  Get Pre-Approved <span className="ml-2 text-xs bg-white/20 px-2 py-0.5 rounded-full">15-Min Process</span>
+                </Link>
+                <Link
+                  href="/mortgage/calculator"
+                  className="bg-gray-800 hover:bg-gray-700 text-white py-3 px-8 rounded-lg font-medium transition-colors border border-gray-700 hover:border-gray-600 flex items-center"
                 >
                   Calculate Payment <FiArrowRight className="ml-2" />
                 </Link>
-                <Link 
-                  href="/mortgage/pre-approval" 
-                  className="bg-gray-800 hover:bg-gray-700 text-white py-3 px-8 rounded-lg font-medium transition-colors border border-gray-700 hover:border-gray-600"
-                >
-                  Get Pre-Approved
-                </Link>
               </div>
-              
+
               <div className="flex flex-wrap items-center gap-6">
                 <div className="flex items-center text-gray-300">
                   <FiCheck className="text-green-500 mr-2" />
@@ -313,12 +317,16 @@ export default function MortgagePage() {
                 </div>
                 <div className="flex items-center text-gray-300">
                   <FiCheck className="text-green-500 mr-2" />
-                  <span>5-star customer service</span>
+                  <span>4.9/5 customer rating</span>
+                </div>
+                <div className="flex items-center text-gray-300">
+                  <FiCheck className="text-green-500 mr-2" />
+                  <span>Close in as little as 21 days</span>
                 </div>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
               transition={{ duration: 0.7, delay: 0.2 }}
@@ -329,21 +337,21 @@ export default function MortgagePage() {
                   <div className="flex flex-wrap justify-between items-center gap-4">
                     <h3 className="text-xl font-bold text-white">Mortgage Calculator</h3>
                     <div className="flex gap-2">
-                      <button 
-                        onClick={() => setActiveTab('purchase')} 
+                      <button
+                        onClick={() => setActiveTab('purchase')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                          activeTab === 'purchase' 
-                            ? 'bg-green-600 text-white' 
+                          activeTab === 'purchase'
+                            ? 'bg-green-600 text-white'
                             : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                         }`}
                       >
                         Purchase
                       </button>
-                      <button 
-                        onClick={() => setActiveTab('refinance')} 
+                      <button
+                        onClick={() => setActiveTab('refinance')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium ${
-                          activeTab === 'refinance' 
-                            ? 'bg-green-600 text-white' 
+                          activeTab === 'refinance'
+                            ? 'bg-green-600 text-white'
                             : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                         }`}
                       >
@@ -352,17 +360,17 @@ export default function MortgagePage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-6">
                   <div className="mb-6">
                     <div className="flex justify-between mb-2">
                       <label className="text-gray-300 font-medium">Loan Amount</label>
                       <span className="text-green-400 font-medium">${loanAmount.toLocaleString()}</span>
                     </div>
-                    <input 
-                      type="range" 
-                      min="50000" 
-                      max="1000000" 
+                    <input
+                      type="range"
+                      min="50000"
+                      max="1000000"
                       step="10000"
                       value={loanAmount}
                       onChange={(e) => setLoanAmount(Number(e.target.value))}
@@ -373,16 +381,16 @@ export default function MortgagePage() {
                       <span className="text-xs text-gray-400">$1,000,000</span>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <div className="flex justify-between mb-2">
                       <label className="text-gray-300 font-medium">Interest Rate</label>
                       <span className="text-green-400 font-medium">{interestRate}%</span>
                     </div>
-                    <input 
-                      type="range" 
-                      min="2" 
-                      max="10" 
+                    <input
+                      type="range"
+                      min="2"
+                      max="10"
                       step="0.125"
                       value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
@@ -393,7 +401,7 @@ export default function MortgagePage() {
                       <span className="text-xs text-gray-400">10%</span>
                     </div>
                   </div>
-                  
+
                   <div className="mb-6">
                     <div className="flex justify-between mb-2">
                       <label className="text-gray-300 font-medium">Loan Term</label>
@@ -405,8 +413,8 @@ export default function MortgagePage() {
                           key={term}
                           onClick={() => setLoanTerm(term)}
                           className={`flex-1 py-2 rounded-lg text-sm font-medium ${
-                            loanTerm === term 
-                              ? 'bg-green-600 text-white' 
+                            loanTerm === term
+                              ? 'bg-green-600 text-white'
                               : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                           }`}
                         >
@@ -415,7 +423,7 @@ export default function MortgagePage() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="bg-gray-700/50 dark:bg-gray-700/50 rounded-xl p-6 mb-6">
                     <div className="flex justify-between items-center mb-2">
                       <h4 className="text-white">Monthly Payment</h4>
@@ -437,7 +445,7 @@ export default function MortgagePage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <Link
                     href="/mortgage/pre-approval"
                     className="block w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-lg font-medium text-center transition-colors"
@@ -445,7 +453,7 @@ export default function MortgagePage() {
                     Get Pre-Approved
                   </Link>
                   <p className="text-gray-400 text-center text-xs mt-3">
-                    This is an estimate. Your actual payment may vary.
+                    This is an estimate. Your actual payment may vary based on credit profile, property type, and down payment.
                   </p>
                 </div>
               </div>
@@ -453,7 +461,7 @@ export default function MortgagePage() {
           </div>
         </motion.div>
       </section>
-      
+
       {/* Mortgage Types Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -465,17 +473,20 @@ export default function MortgagePage() {
             className="text-center max-w-3xl mx-auto mb-16"
           >
             <div className="inline-block px-4 py-1 rounded-full bg-green-900/30 dark:bg-green-900/30 text-green-400 dark:text-green-400 text-sm font-medium mb-4">
-              Mortgage Options
+              Specialized Mortgage Solutions
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Find the <span className="text-green-400 dark:text-green-400">Perfect Mortgage</span> for Your Needs
+              Find Your <span className="text-green-400 dark:text-green-400">Ideal Financing</span> Solution
             </h2>
-            <p className="text-gray-300 dark:text-gray-300 text-lg">
-              Compare our mortgage options to find the loan that best fits your homebuying goals and financial situation.
+            <p className="text-gray-300 dark:text-gray-300 text-lg mb-4">
+              Our comprehensive suite of mortgage products is designed to accommodate diverse financial profiles and property types.
+            </p>
+            <p className="text-gray-400 dark:text-gray-400 text-md">
+              Each option includes transparent terms, competitive rates, and personalized guidance from our mortgage specialists.
             </p>
           </motion.div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {mortgageTypes.map((type, index) => (
               <motion.div
@@ -494,15 +505,15 @@ export default function MortgagePage() {
                     </div>
                   </div>
                 )}
-                
+
                 <div className="p-6">
                   <div className="p-3 bg-green-900/30 dark:bg-green-900/30 rounded-lg w-fit mb-4">
                     {type.icon}
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-white mb-2">{type.title}</h3>
                   <p className="text-gray-300 mb-4">{type.description}</p>
-                  
+
                   <ul className="space-y-3 mb-6">
                     {type.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
@@ -511,13 +522,13 @@ export default function MortgagePage() {
                       </li>
                     ))}
                   </ul>
-                  
+
                   <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-700 dark:border-gray-700">
                     <div>
                       <p className="text-gray-400 text-xs">Starting at</p>
                       <p className="text-xl font-bold text-green-400 dark:text-green-400">{type.APR} APR</p>
                     </div>
-                    
+
                     <Link
                       href={`/mortgage/${type.id}`}
                       className="inline-flex items-center font-medium text-green-400 dark:text-green-400 hover:text-green-300 dark:hover:text-green-300"
@@ -531,7 +542,7 @@ export default function MortgagePage() {
           </div>
         </div>
       </section>
-      
+
       {/* Process Timeline Section */}
       <section className="py-20 bg-black/60 dark:bg-black/60">
         <div className="container mx-auto px-4">
@@ -552,16 +563,16 @@ export default function MortgagePage() {
               We've streamlined the journey to homeownership to make it clear and straightforward.
             </p>
           </motion.div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Progress Line */}
               <div className="absolute top-0 bottom-0 left-4 w-0.5 bg-green-900/30 dark:bg-green-900/30 hidden md:block"></div>
-              
+
               {/* Timeline Steps */}
               <div className="space-y-8">
                 {mortgageProcess.map((step, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -592,9 +603,9 @@ export default function MortgagePage() {
                 ))}
               </div>
             </div>
-            
+
             <div className="text-center mt-16">
-              <Link 
+              <Link
                 href="/mortgage/application"
                 className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-full transition-colors shadow-md hover:shadow-lg"
               >
@@ -604,11 +615,11 @@ export default function MortgagePage() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -617,18 +628,18 @@ export default function MortgagePage() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mt-20 -mr-20"></div>
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -mb-10 -ml-10"></div>
-            
+
             <div className="inline-block px-4 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6 backdrop-blur-sm">
               Ready to Get Started?
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 relative z-10">
               Find Your Perfect Mortgage Today
             </h2>
             <p className="text-green-50 mb-8 max-w-2xl mx-auto relative z-10 text-lg">
               Check your rate in 3 minutes with no impact to your credit score. Get pre-approved and shop with confidence.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/mortgage/pre-approval" className="bg-white text-green-600 hover:bg-green-50 px-8 py-4 rounded-full font-medium transition-colors shadow-md hover:shadow-lg relative z-10">
                 Check My Rate
@@ -637,7 +648,7 @@ export default function MortgagePage() {
                 Speak With a Mortgage Advisor
               </Link>
             </div>
-            
+
             <div className="mt-8 flex flex-wrap justify-center gap-6">
               <div className="flex items-center text-white">
                 <FiShield className="mr-2" />

@@ -5,8 +5,8 @@ import BusinessWhyPage from "@/components/business-loan/business-why";
 
 
 export const metadata = {
-  title: "Loan Application - Lending Forte",
-  description: "Page description",
+  title: "Business Loans - Lending Forte",
+  description: "Discover our business financing solutions tailored to your company's needs",
 };
 
 export default function Businessloan() {
