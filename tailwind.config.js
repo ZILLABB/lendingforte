@@ -82,19 +82,21 @@ module.exports = {
         "1/1": "100%",
       },
       fontFamily: {
+        // Primary sans-serif font for UI and body text
+        outfit: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        // Elegant serif font for headings and key statements
+        fraunces: ["var(--font-fraunces)", "Georgia", "serif"],
+        // Accent font for special elements
+        "architects-daughter": ["var(--font-architects-daughter)", "cursive"],
+        // Semantic font families for consistent usage
         sans: [
-          "var(--font-inter)",
-          "Inter",
-          "ui-sans-serif",
+          "var(--font-outfit)",
           "system-ui",
+          "ui-sans-serif",
           "sans-serif",
         ],
-        display: [
-          "var(--font-lexend)",
-          "Lexend",
-          "var(--font-inter)",
-          "sans-serif",
-        ],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-fraunces)", "Georgia", "serif"],
         mono: [
           "ui-monospace",
           "SFMono-Regular",
@@ -105,27 +107,41 @@ module.exports = {
         ],
       },
       fontSize: {
-        xs: ["0.75rem", { lineHeight: "1rem" }],
-        sm: ["0.875rem", { lineHeight: "1.25rem" }],
-        base: ["1rem", { lineHeight: "1.5rem" }],
-        lg: ["1.125rem", { lineHeight: "1.75rem" }],
-        xl: ["1.25rem", { lineHeight: "1.75rem" }],
-        "2xl": ["1.5rem", { lineHeight: "2rem" }],
-        "3xl": ["1.875rem", { lineHeight: "2.25rem" }],
-        "4xl": ["2.25rem", { lineHeight: "2.5rem" }],
-        "5xl": ["3rem", { lineHeight: "1.1" }],
-        "6xl": ["3.75rem", { lineHeight: "1" }],
+        // Enhanced typography scale with refined line heights and letter spacing
+        "2xs": ["0.625rem", { lineHeight: "1rem", letterSpacing: "0.04em" }],
+        xs: ["0.75rem", { lineHeight: "1rem", letterSpacing: "0.02em" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem", letterSpacing: "0.01em" }],
+        base: ["1rem", { lineHeight: "1.5rem", letterSpacing: "0" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem", letterSpacing: "-0.01em" }],
+        xl: ["1.25rem", { lineHeight: "1.75rem", letterSpacing: "-0.01em" }],
+        "2xl": ["1.5rem", { lineHeight: "2rem", letterSpacing: "-0.015em" }],
+        "3xl": [
+          "1.875rem",
+          { lineHeight: "2.25rem", letterSpacing: "-0.02em" },
+        ],
+        "4xl": ["2.25rem", { lineHeight: "2.5rem", letterSpacing: "-0.025em" }],
+        "5xl": ["3rem", { lineHeight: "1.15", letterSpacing: "-0.03em" }],
+        "6xl": ["3.75rem", { lineHeight: "1.1", letterSpacing: "-0.035em" }],
+        "7xl": ["4.5rem", { lineHeight: "1.05", letterSpacing: "-0.04em" }],
+        "8xl": ["6rem", { lineHeight: "1", letterSpacing: "-0.045em" }],
       },
       inset: {
         full: "100%",
       },
       letterSpacing: {
-        tighter: "-0.02em",
+        tightest: "-0.05em",
+        tighter: "-0.03em",
         tight: "-0.01em",
         normal: "0",
         wide: "0.01em",
         wider: "0.02em",
-        widest: "0.4em",
+        widest: "0.05em",
+        // Special spacing for display text
+        display: "-0.04em",
+        // Special spacing for headings
+        heading: "-0.025em",
+        // Special spacing for small text
+        small: "0.03em",
       },
       minWidth: {
         10: "2.5rem",
