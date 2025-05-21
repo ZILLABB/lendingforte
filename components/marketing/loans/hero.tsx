@@ -34,7 +34,8 @@ export default function LoanHero({
           ),
           useCases: ['Debt Consolidation', 'Home Improvements', 'Major Purchases', 'Medical Expenses', 'Wedding Costs'],
           image: '/images/lendingforte/loans/personal-loan.jpg',
-          alt: 'Personal loan services from LendingForte'
+          alt: 'Personal loan services from LendingForte - financial planning',
+          description: 'Take control of your finances with our flexible personal loan options designed to meet your unique needs and goals.'
         };
       case 'mortgage':
         return {
@@ -45,7 +46,8 @@ export default function LoanHero({
           ),
           useCases: ['First-Time Home Purchase', 'Home Refinancing', 'Investment Properties', 'Vacation Homes', 'Home Construction'],
           image: '/images/lendingforte/loans/mortgage.jpg',
-          alt: 'Mortgage services from LendingForte'
+          alt: 'Mortgage services from LendingForte - modern home financing',
+          description: 'Make your dream home a reality with our competitive mortgage options tailored to your financial situation and homeownership goals.'
         };
       case 'business':
         return {
@@ -56,7 +58,8 @@ export default function LoanHero({
           ),
           useCases: ['Business Expansion', 'Equipment Purchase', 'Working Capital', 'Inventory Financing', 'Commercial Real Estate'],
           image: '/images/lendingforte/loans/business-loan.jpg',
-          alt: 'Business loan services from LendingForte'
+          alt: 'Business loan services from LendingForte - corporate financing solutions',
+          description: 'Fuel your business growth with our specialized financing solutions designed to help your company reach its full potential.'
         };
       default:
         return {
@@ -67,7 +70,8 @@ export default function LoanHero({
           ),
           useCases: ['Various Financial Needs'],
           image: '/images/lendingforte/loans/personal-loan.jpg',
-          alt: 'Financial services from LendingForte'
+          alt: 'Premium financial services from LendingForte',
+          description: 'Discover our comprehensive suite of financial solutions designed to help you achieve your financial goals with confidence.'
         };
     }
   };
@@ -155,10 +159,17 @@ export default function LoanHero({
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-900/30 to-dark-300/50 mix-blend-multiply"></div>
+
+                {/* Icon badge */}
                 <div className="absolute top-4 left-4">
-                  <div className="w-12 h-12 rounded-full bg-primary-500/20 backdrop-blur-sm flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-primary-500/20 backdrop-blur-sm flex items-center justify-center border border-primary-500/30 shadow-lg">
                     {loanDetails.icon}
                   </div>
+                </div>
+
+                {/* Description overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-dark-300 to-transparent">
+                  <p className="text-sm text-gray-300 font-light">{loanDetails.description}</p>
                 </div>
               </div>
             </div>

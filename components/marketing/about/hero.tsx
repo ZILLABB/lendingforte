@@ -10,14 +10,14 @@ export default function AboutHero() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/lendingforte/about/about-hero.jpg"
-          alt="LendingForte office building"
+          alt="LendingForte executive in professional setting"
           fill
           sizes="100vw"
           priority
-          className="object-cover object-center"
+          className="object-cover object-center brightness-75"
         />
-        <div className="absolute inset-0 bg-dark-300/80 backdrop-blur-sm"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,197,94,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(59,130,246,0.3),transparent_40%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-300/90 to-dark-300/70"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,197,94,0.25),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(59,130,246,0.2),transparent_40%)]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
