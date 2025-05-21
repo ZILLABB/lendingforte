@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function AboutTeam() {
   const executives = [
@@ -9,25 +10,29 @@ export default function AboutTeam() {
       name: 'James Davidson',
       role: 'Chief Executive Officer',
       bio: 'James founded LendingForte with a vision to transform the lending industry through technology and client-centered service.',
-      initial: 'JD'
+      initial: 'JD',
+      image: '/images/lendingforte/about/team/executive-1.jpg'
     },
     {
       name: 'Sarah Chen',
       role: 'Chief Financial Officer',
       bio: 'With over 15 years in financial services, Sarah oversees our financial strategy and ensures sustainable growth.',
-      initial: 'SC'
+      initial: 'SC',
+      image: '/images/lendingforte/about/team/executive-2.jpg'
     },
     {
       name: 'Michael Rodriguez',
       role: 'Chief Technology Officer',
       bio: 'Michael leads our technology initiatives, focusing on creating secure, innovative platforms for our clients.',
-      initial: 'MR'
+      initial: 'MR',
+      image: '/images/lendingforte/about/team/executive-3.jpg'
     },
     {
       name: 'Emily Washington',
       role: 'Chief Operating Officer',
       bio: 'Emily ensures our day-to-day operations run smoothly while maintaining our high standards of service excellence.',
-      initial: 'EW'
+      initial: 'EW',
+      image: '/images/lendingforte/about/team/executive-4.jpg'
     }
   ];
 
@@ -68,7 +73,7 @@ export default function AboutTeam() {
     <section className="py-16 md:py-24 bg-dark-200">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,7 +82,7 @@ export default function AboutTeam() {
           >
             Meet Our Leadership Team
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -100,27 +105,32 @@ export default function AboutTeam() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-dark-300 border border-dark-100/50 rounded-xl overflow-hidden shadow-lg"
             >
-              <div className="h-48 bg-gradient-to-br from-dark-100 to-dark-200 flex items-center justify-center">
-                <div className="w-24 h-24 rounded-full bg-primary-500/20 flex items-center justify-center">
-                  <span className="text-3xl font-semibold text-primary-500">{executive.initial}</span>
-                </div>
+              <div className="h-48 relative overflow-hidden">
+                <Image
+                  src={executive.image}
+                  alt={`${executive.name}, ${executive.role} at LendingForte`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-300 to-transparent"></div>
               </div>
-              
+
               <div className="p-6">
                 <h4 className="text-xl font-semibold text-white mb-1">{executive.name}</h4>
                 <p className="text-primary-400 text-sm mb-3">{executive.role}</p>
                 <p className="text-gray-400 text-sm mb-4">{executive.bio}</p>
-                
+
                 <div className="flex space-x-3">
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="w-8 h-8 rounded-full bg-dark-200 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors"
                     aria-label={`${executive.name}'s LinkedIn`}
                   >
                     <FaLinkedinIn size={14} />
                   </a>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="w-8 h-8 rounded-full bg-dark-200 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors"
                     aria-label={`${executive.name}'s Twitter`}
                   >
@@ -154,8 +164,8 @@ export default function AboutTeam() {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
