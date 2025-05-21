@@ -105,7 +105,7 @@ export default function AboutTeam() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-dark-300 border border-dark-100/50 rounded-xl overflow-hidden shadow-lg"
             >
-              <div className="h-48 relative overflow-hidden">
+              <div className="h-56 relative overflow-hidden rounded-t-xl">
                 <Image
                   src={executive.image}
                   alt={`${executive.name}, ${executive.role} at LendingForte`}
@@ -113,7 +113,14 @@ export default function AboutTeam() {
                   sizes="(max-width: 768px) 100vw, 25vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-300 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-300 via-dark-300/50 to-transparent"></div>
+                <div className="absolute top-3 right-3">
+                  <div className="w-8 h-8 rounded-full bg-primary-500/20 backdrop-blur-sm flex items-center justify-center">
+                    <svg className="w-4 h-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
 
               <div className="p-6">

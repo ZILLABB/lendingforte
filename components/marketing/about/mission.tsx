@@ -16,18 +16,18 @@ export default function AboutMission() {
             className="relative"
           >
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border border-dark-100/50">
-              <div className="aspect-[4/3] relative">
+              <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-xl">
                 <Image
                   src="/images/lendingforte/about/about-mission.jpg"
-                  alt="LendingForte mission and vision"
+                  alt="LendingForte mission and vision - modern office environment"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-900/40 to-dark-300/40 mix-blend-multiply"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-900/30 to-dark-300/50 mix-blend-multiply"></div>
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-primary-500/20 backdrop-blur-md flex items-center justify-center">
-                    <svg className="w-12 h-12 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <div className="w-28 h-28 rounded-full bg-primary-500/20 backdrop-blur-md flex items-center justify-center border border-primary-500/30 shadow-lg">
+                    <svg className="w-14 h-14 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>

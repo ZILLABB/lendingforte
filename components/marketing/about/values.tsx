@@ -51,12 +51,13 @@ export default function AboutValues() {
       <div className="absolute inset-0 -z-10">
         <Image
           src="/images/lendingforte/about/about-values.jpg"
-          alt="LendingForte values background"
+          alt="LendingForte corporate values - modern skyscraper view"
           fill
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-cover object-center brightness-75"
         />
-        <div className="absolute inset-0 bg-dark-300/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-300/95 to-dark-300/80"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(34,197,94,0.15),transparent_30%)]"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
