@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Circle with Gradient Border -->
+  <circle cx="32" cy="32" r="32" fill="url(#logoGradient)" />
+
+  <!-- Inner Circle (Dark Background) -->
+  <circle cx="32" cy="32" r="28" fill="#111827" />
+
+  <!-- Financial Graph Element -->
+  <path d="M45 22L32 35L26 29L19 36" stroke="url(#logoGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Arrow Element -->
+  <path d="M39 22H45V28" stroke="url(#logoGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Document Element -->
+  <path d="M42 34V41C42 41.5304 41.7893 42.0391 41.4142 42.4142C41.0391 42.7893 40.5304 43 40 43H22C21.4696 43 20.9609 42.7893 20.5858 42.4142C20.2107 42.0391 20 41.5304 20 41V23C20 22.4696 20.2107 21.9609 20.5858 21.5858C20.9609 21.2107 21.4696 21 22 21H29" stroke="url(#logoGradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

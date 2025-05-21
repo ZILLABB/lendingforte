@@ -1,0 +1,83 @@
+/* Mobile fixes to prevent content expansion and resizing */
+
+/* Prevent content from expanding beyond viewport */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+/* Force content to stay within viewport */
+* {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Ensure images don't cause layout shifts */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent animations from causing layout shifts on mobile */
+@media (max-width: 767px) {
+  /* Disable AOS animations on mobile */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Prevent text from resizing automatically */
+  * {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Ensure fixed elements don't cause layout shifts */
+  .fixed {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* Prevent content from expanding beyond viewport width */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Ensure proper sizing for flex items */
+  .flex-1,
+  .flex-grow,
+  .flex-auto {
+    flex-shrink: 1;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  /* Prevent Framer Motion animations from causing layout shifts */
+  .motion-div,
+  [data-framer-component-type],
+  div[style*="transform"],
+  div[style*="transition"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+    will-change: transform;
+  }
+
+  /* Force hardware acceleration for smoother animations */
+  .absolute,
+  .sticky {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}

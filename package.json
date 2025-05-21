@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "npx update-browserslist-db@latest"
+    "postinstall": "npx update-browserslist-db@latest",
+    "check:browser": "node scripts/browser-compatibility-test.js",
+    "check:a11y": "node scripts/accessibility-checker.js",
+    "test": "npm run check:browser && npm run check:a11y"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -17,7 +20,9 @@
     "@headlessui/react": "^2.0.0",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^3.3.4",
+    "@react-google-maps/api": "^2.20.6",
     "@tippyjs/react": "^4.2.6",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
@@ -25,12 +30,15 @@
     "assert": "^2.1.0",
     "browserify-zlib": "^0.2.0",
     "chart.js": "^4.4.9",
+    "core-js": "^3.42.0",
     "country-state-city": "^3.2.1",
     "crypto-browserify": "^3.12.0",
+    "emailjs-com": "^3.2.0",
     "firebase": "^10.8.0",
     "framer-motion": "^12.12.1",
     "https-browserify": "^1.0.0",
     "leaflet": "^1.9.4",
+    "libphonenumber-js": "^1.12.8",
     "moment": "^2.30.1",
     "next": "^14.2.4",
     "next-seo": "^6.7.1",
@@ -43,7 +51,9 @@
     "react-hook-form": "^7.51.0",
     "react-icons": "^5.5.0",
     "react-modal": "^3.16.3",
+    "react-phone-number-input": "^3.4.12",
     "react-toastify": "^10.0.6",
+    "regenerator-runtime": "^0.14.1",
     "sharp": "^0.33.2",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
@@ -51,7 +61,8 @@
     "typescript": "^5.3.3",
     "undici": "^5.28.3",
     "url": "^0.11.3",
-    "zod": "^3.22.4"
+    "use-places-autocomplete": "^4.0.1",
+    "zod": "^3.25.13"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",

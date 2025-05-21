@@ -1,0 +1,242 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-300 text-white;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 shadow-sm;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-700;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 bg-transparent hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800;
+  }
+
+  .btn-link {
+    @apply text-primary-500 underline-offset-4 hover:underline;
+  }
+
+  .btn-lg {
+    @apply h-12 px-6 text-base;
+  }
+
+  .btn-md {
+    @apply h-10 px-4 text-sm;
+  }
+
+  .btn-sm {
+    @apply h-8 px-3 text-xs;
+  }
+
+  /* Card styles */
+  .card {
+    @apply rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-800 dark:bg-gray-900;
+  }
+
+  /* Input styles */
+  .input {
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50 dark:placeholder:text-gray-500;
+  }
+
+  /* Select styles */
+  .select {
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-50;
+  }
+
+  /* Checkbox styles */
+  .checkbox {
+    @apply h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500 dark:border-gray-700;
+  }
+
+  /* Radio styles */
+  .radio {
+    @apply h-4 w-4 border-gray-300 text-primary-500 focus:ring-primary-500 dark:border-gray-700;
+  }
+
+  /* Label styles */
+  .label {
+    @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+  }
+}
+
+/* Scrollbar styles */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* React Phone Number Input Styles */
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.PhoneInputCountry {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.PhoneInputCountrySelectArrow {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-style: solid;
+  border-color: currentColor;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  transform: rotate(-45deg);
+  opacity: 0.45;
+  margin-left: 0.3rem;
+}
+
+.PhoneInputCountrySelect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+/* Custom dark theme for phone input */
+.phone-input-container .PhoneInputCountryIcon {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+.phone-input-container .PhoneInputCountrySelectArrow {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.phone-input-container
+  .PhoneInputCountrySelect:focus
+  + .PhoneInputCountryIcon
+  + .PhoneInputCountrySelectArrow {
+  opacity: 1;
+  color: #10b981; /* primary-500 */
+}

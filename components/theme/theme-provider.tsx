@@ -8,6 +8,8 @@ type ThemeProviderProps = {
   children: React.ReactNode
   defaultTheme?: Theme
   storageKey?: string
+  attribute?: string
+  enableSystem?: boolean
 }
 
 type ThemeProviderState = {
@@ -28,6 +30,8 @@ export function ThemeProvider({
   children,
   defaultTheme = 'system',
   storageKey = 'lendingforte-theme',
+  attribute = 'class',
+  enableSystem = true,
   ...props
 }: ThemeProviderProps) {
   // Initialize with defaultTheme but will be updated in useEffect
@@ -75,7 +79,7 @@ export function ThemeProvider({
 
     let newResolvedTheme: 'dark' | 'light'
 
-    if (theme === 'system') {
+    if (theme === 'system' && enableSystem) {
       newResolvedTheme = systemTheme
       root.classList.add(systemTheme)
     } else {
@@ -87,7 +91,7 @@ export function ThemeProvider({
 
     // Update data-theme attribute for components that might use it
     root.setAttribute('data-theme', newResolvedTheme)
-  }, [theme, systemTheme])
+  }, [theme, systemTheme, enableSystem])
 
   const value = {
     theme,

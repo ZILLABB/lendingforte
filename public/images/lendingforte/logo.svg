@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="#1A202C" stroke="url(#logoGradient)" stroke-width="8" />
+  
+  <!-- LF Monogram -->
+  <g filter="url(#shadow)">
+    <!-- L -->
+    <path d="M120 140h40v200h-40V140z" fill="url(#logoGradient)" />
+    
+    <!-- F -->
+    <path d="M200 140h40v40h-40v-40z" fill="url(#logoGradient)" />
+    <path d="M200 200h120v40H200v-40z" fill="url(#logoGradient)" />
+    <path d="M200 260h40v40h-40v-40z" fill="url(#logoGradient)" />
+    
+    <!-- Financial Graph Element -->
+    <path d="M320 180c0-5.523 4.477-10 10-10h30c5.523 0 10 4.477 10 10v140c0 5.523-4.477 10-10 10h-30c-5.523 0-10-4.477-10-10V180z" fill="url(#logoGradient)" opacity="0.7" />
+    
+    <path d="M370 220c0-5.523 4.477-10 10-10h30c5.523 0 10 4.477 10 10v100c0 5.523-4.477 10-10 10h-30c-5.523 0-10-4.477-10-10V220z" fill="url(#logoGradient)" opacity="0.5" />
+  </g>
+</svg>

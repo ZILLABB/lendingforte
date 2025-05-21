@@ -1,11 +1,9 @@
-import "./css/style.css";
+import "./globals.css";
+import './css/mobile-fixes.css'; // Import mobile fixes
+import React from 'react';
+import Script from 'next/script';
 
 import { Inter, Architects_Daughter } from "next/font/google";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import { ToastProvider } from "@/components/ui/toast-provider";
-
-import Header from "@/components/ui/header";
-import LoanFooter from "@/components/information";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,6 +22,23 @@ export const metadata = {
   title: "Lending Forte",
   description: "Premium financial solutions for personal and business needs",
   keywords: "loans, financing, credit, personal loans, business loans, mortgage, financial services",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+    'format-detection': 'telephone=no',
+    'mobile-web-app-capable': 'yes',
+  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -32,21 +47,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 tracking-tight`}
-      >
-        <ThemeProvider defaultTheme="system" storageKey="lendingforte-theme">
-          <ToastProvider>
-            <div className="flex flex-col min-h-screen overflow-hidden">
-              <Header />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <LoanFooter />
-            </div>
-          </ToastProvider>
-        </ThemeProvider>
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${inter.variable} ${architects_daughter.variable} font-inter antialiased bg-gray-900 text-gray-200`}>
+        <Script id="prevent-mobile-resize" strategy="beforeInteractive">{`
+            // Prevent automatic content resizing on mobile
+            (function() {
+              // Prevent text resizing
+              document.documentElement.style.webkitTextSizeAdjust = '100%';
+              document.documentElement.style.textSizeAdjust = '100%';
+
+              // Suppress specific Next.js warnings
+              const originalWarn = console.warn;
+              console.warn = function(...args) {
+                if (args.length > 0 && typeof args[0] === 'string' &&
+                    args[0].includes('Skipping auto-scroll behavior')) {
+                  return;
+                }
+                originalWarn.apply(console, args);
+              };
+            })();
+        `}</Script>
+        {children}
       </body>
     </html>
   );
