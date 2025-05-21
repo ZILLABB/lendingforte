@@ -122,6 +122,59 @@
 
 /* Scrollbar styles */
 @layer utilities {
+  /* Premium Typography Utility Classes */
+
+  /* Premium heading styles with serif font */
+  .h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+    @apply font-fraunces font-bold leading-tight tracking-heading;
+  }
+
+  .h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply font-fraunces font-semibold leading-tight tracking-heading;
+  }
+
+  .h3 {
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply font-fraunces font-semibold leading-tight tracking-heading;
+  }
+
+  .h4 {
+    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply font-fraunces font-medium leading-snug tracking-heading;
+  }
+
+  .h5 {
+    @apply text-lg md:text-xl lg:text-2xl;
+    @apply font-fraunces font-medium leading-snug tracking-heading;
+  }
+
+  .h6 {
+    @apply text-base md:text-lg lg:text-xl;
+    @apply font-fraunces font-medium leading-snug tracking-heading;
+  }
+
+  /* Special text styles */
+  .display-text {
+    @apply font-fraunces font-bold tracking-display text-5xl md:text-6xl lg:text-7xl xl:text-8xl;
+    line-height: 1.05;
+  }
+
+  .lead-text {
+    @apply text-xl md:text-2xl font-outfit font-light leading-relaxed text-gray-200;
+  }
+
+  .caption-text {
+    @apply text-sm tracking-small text-gray-400 font-outfit;
+  }
+
+  /* Text gradient effect for premium elements */
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600;
+  }
+
+  /* Scrollbar styles */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -151,6 +204,32 @@
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
     @apply bg-gray-400 dark:bg-gray-500;
   }
+}
+
+/* Advanced Typography Features */
+.font-feature-normal {
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.font-feature-advanced {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0,
+    "onum" 1, "lnum" 0, "dlig" 1;
+}
+
+.font-feature-tabular {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 0, "tnum" 1,
+    "onum" 0, "lnum" 1;
+}
+
+/* Drop cap for premium content */
+.drop-cap:first-letter {
+  @apply font-fraunces font-bold text-5xl float-left mr-3 mt-1;
+  line-height: 0.9;
+}
+
+/* Premium text selection styling */
+::selection {
+  @apply bg-primary-900/40 text-white;
 }
 
 /* React Phone Number Input Styles */

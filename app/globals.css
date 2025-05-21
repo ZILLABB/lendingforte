@@ -3,46 +3,89 @@
 @tailwind utilities;
 
 @layer base {
+  /* Base body styles */
   body {
-    @apply bg-dark-300 text-white;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply bg-dark-300 text-white font-outfit;
+    /* Enable advanced typography features */
+    font-feature-settings: "rlig" 1, "calt" 1, "kern" 1, "liga" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
+  /* Heading styles using serif font */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-display font-semibold tracking-tight;
+    @apply font-fraunces font-semibold tracking-heading text-white;
+    /* Slightly tighter line height for headings */
+    line-height: 1.15;
   }
 
+  /* Refined heading scale with responsive sizes */
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+    @apply mb-6 font-bold;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-3xl md:text-4xl lg:text-5xl;
+    @apply mb-5 font-semibold;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl lg:text-4xl;
+    @apply mb-4;
   }
 
   h4 {
-    @apply text-xl md:text-2xl;
+    @apply text-xl md:text-2xl lg:text-3xl;
+    @apply mb-3;
   }
 
   h5 {
-    @apply text-lg md:text-xl;
+    @apply text-lg md:text-xl lg:text-2xl;
+    @apply mb-2;
   }
 
   h6 {
-    @apply text-base md:text-lg;
+    @apply text-base md:text-lg lg:text-xl;
+    @apply mb-2;
   }
 
+  /* Paragraph styles */
   p {
-    @apply leading-relaxed;
+    @apply leading-relaxed mb-4 text-gray-200;
+    max-width: 75ch; /* Optimal reading length */
+  }
+
+  /* Small text */
+  small {
+    @apply text-sm tracking-small text-gray-400;
+  }
+
+  /* Link styles */
+  a {
+    @apply text-primary-400 hover:text-primary-300 transition-colors duration-200;
+    text-underline-offset: 2px;
+  }
+
+  /* List styles */
+  ul,
+  ol {
+    @apply pl-5 mb-4;
+  }
+
+  li {
+    @apply mb-1;
+  }
+
+  /* Blockquote for testimonials and highlighted content */
+  blockquote {
+    @apply pl-4 border-l-4 border-primary-500 italic text-gray-300 my-4;
   }
 
   /* Focus styles */
