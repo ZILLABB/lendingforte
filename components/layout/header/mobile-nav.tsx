@@ -398,28 +398,7 @@ export default function MobileNav({ scrolled }: MobileNavProps) {
                     </Link>
                   </motion.div>
 
-                  {/* Auth buttons if not logged in */}
-                  {!user && (
-                    <motion.div
-                      variants={itemVariants}
-                      className="mb-8 flex space-x-3"
-                    >
-                      <Link
-                        href="/auth/login"
-                        className="flex-1 py-4 px-5 bg-dark-100 text-white text-center font-medium rounded-lg hover:bg-dark-200 transition-colors text-lg"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        Log In
-                      </Link>
-                      <Link
-                        href="/auth/register"
-                        className="flex-1 py-4 px-5 bg-primary-500 text-white text-center font-medium rounded-lg hover:bg-primary-600 transition-colors text-lg"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        Register
-                      </Link>
-                    </motion.div>
-                  )}
+                  {/* Auth buttons removed */}
 
 
                 </motion.div>

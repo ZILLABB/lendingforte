@@ -33,9 +33,9 @@ export default function AuthButtons() {
         >
           <div className="w-8 h-8 rounded-full bg-primary-500/20 flex items-center justify-center">
             {user.photoURL ? (
-              <img 
-                src={user.photoURL} 
-                alt={user.displayName || 'User'} 
+              <img
+                src={user.photoURL}
+                alt={user.displayName || 'User'}
                 className="w-8 h-8 rounded-full"
               />
             ) : (
@@ -51,11 +51,11 @@ export default function AuthButtons() {
           {isOpen && (
             <>
               {/* Backdrop for closing the dropdown when clicking outside */}
-              <div 
-                className="fixed inset-0 z-40" 
+              <div
+                className="fixed inset-0 z-40"
                 onClick={() => setIsOpen(false)}
               />
-              
+
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -71,7 +71,7 @@ export default function AuthButtons() {
                     {user.email}
                   </p>
                 </div>
-                
+
                 <Link
                   href="/dashboard"
                   className="flex items-center w-full px-3 py-2 text-sm rounded-lg text-gray-300 hover:bg-dark-100/50 hover:text-white transition-colors"
@@ -79,7 +79,7 @@ export default function AuthButtons() {
                 >
                   Dashboard
                 </Link>
-                
+
                 <Link
                   href="/dashboard/applications"
                   className="flex items-center w-full px-3 py-2 text-sm rounded-lg text-gray-300 hover:bg-dark-100/50 hover:text-white transition-colors"
@@ -87,7 +87,7 @@ export default function AuthButtons() {
                 >
                   My Applications
                 </Link>
-                
+
                 <Link
                   href="/dashboard/profile"
                   className="flex items-center w-full px-3 py-2 text-sm rounded-lg text-gray-300 hover:bg-dark-100/50 hover:text-white transition-colors"
@@ -95,7 +95,7 @@ export default function AuthButtons() {
                 >
                   Profile Settings
                 </Link>
-                
+
                 <button
                   onClick={() => {
                     setIsOpen(false);
@@ -113,22 +113,6 @@ export default function AuthButtons() {
     );
   }
 
-  // If user is not logged in, show login/register buttons
-  return (
-    <div className="flex items-center space-x-3">
-      <Link
-        href="/auth/login"
-        className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
-      >
-        Log In
-      </Link>
-      
-      <Link
-        href="/auth/register"
-        className="px-4 py-2 text-sm font-medium bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors shadow-sm"
-      >
-        Register
-      </Link>
-    </div>
-  );
+  // If user is not logged in, don't show any buttons
+  return null;
 }
