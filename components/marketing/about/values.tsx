@@ -1,13 +1,14 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  ShieldCheckIcon, 
-  LightBulbIcon, 
-  UserGroupIcon, 
-  GlobeAltIcon, 
-  HeartIcon, 
-  ScaleIcon 
+import Image from 'next/image';
+import {
+  ShieldCheckIcon,
+  LightBulbIcon,
+  UserGroupIcon,
+  GlobeAltIcon,
+  HeartIcon,
+  ScaleIcon
 } from '@heroicons/react/24/outline';
 
 export default function AboutValues() {
@@ -45,10 +46,22 @@ export default function AboutValues() {
   ];
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6">
+    <section className="py-16 md:py-24 relative">
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/lendingforte/about/about-values.jpg"
+          alt="LendingForte values background"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-dark-300/90"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -57,7 +70,7 @@ export default function AboutValues() {
           >
             Our Core Values
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,8 +99,8 @@ export default function AboutValues() {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

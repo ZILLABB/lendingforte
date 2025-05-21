@@ -1,18 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function AboutHero() {
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10 opacity-20">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_10%_20%,rgba(34,197,94,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(59,130,246,0.3),transparent_40%)]"></div>
+      {/* Background image with overlay */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/images/lendingforte/about/about-hero.jpg"
+          alt="LendingForte office building"
+          fill
+          sizes="100vw"
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-dark-300/80 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_20%,rgba(34,197,94,0.35),transparent_40%),radial-gradient(circle_at_80%_60%,rgba(59,130,246,0.3),transparent_40%)]"></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -20,8 +30,8 @@ export default function AboutHero() {
           >
             About LendingForte
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -29,8 +39,8 @@ export default function AboutHero() {
           >
             We're on a mission to transform the financial industry by providing premium lending solutions that are accessible, transparent, and tailored to your unique needs.
           </motion.p>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -47,7 +57,7 @@ export default function AboutHero() {
                 <p className="text-sm text-gray-400">With a vision for change</p>
               </div>
             </div>
-            
+
             <div className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-dark-100 flex items-center justify-center">
                 <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +69,7 @@ export default function AboutHero() {
                 <p className="text-sm text-gray-400">Dedicated professionals</p>
               </div>
             </div>
-            
+
             <div className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-dark-100 flex items-center justify-center">
                 <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
