@@ -4,20 +4,20 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { 
-  FaLeaf, 
-  FaChartLine, 
-  FaHandshake, 
-  FaShieldAlt, 
-  FaPhoneAlt, 
-  FaEnvelope, 
-  FaMapMarkerAlt, 
-  FaClock 
+import {
+  FaLeaf,
+  FaChartLine,
+  FaHandshake,
+  FaShieldAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaClock
 } from 'react-icons/fa';
 
 export default function DesktopNav() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  
+
   // Refs for dropdown elements
   const dropdownRefs = {
     loans: useRef<HTMLDivElement>(null),
@@ -34,7 +34,7 @@ export default function DesktopNav() {
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      
+
       // Check each dropdown
       Object.entries(dropdownRefs).forEach(([key, ref]) => {
         const button = document.getElementById(`${key}-dropdown-button`);
@@ -85,9 +85,8 @@ export default function DesktopNav() {
         >
           <span className={activeDropdown === 'loans' ? 'text-primary-400' : ''}>Loans</span>
           <ChevronDownIcon
-            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${
-              activeDropdown === 'loans' ? 'rotate-180 text-primary-400' : ''
-            }`}
+            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'loans' ? 'rotate-180 text-primary-400' : ''
+              }`}
           />
         </button>
 
@@ -139,9 +138,8 @@ export default function DesktopNav() {
         >
           <span className={activeDropdown === 'premium' ? 'text-primary-400' : ''}>Premium Solutions</span>
           <ChevronDownIcon
-            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${
-              activeDropdown === 'premium' ? 'rotate-180 text-primary-400' : ''
-            }`}
+            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'premium' ? 'rotate-180 text-primary-400' : ''
+              }`}
           />
         </button>
 
@@ -212,9 +210,8 @@ export default function DesktopNav() {
         >
           <span className={activeDropdown === 'contact' ? 'text-primary-400' : ''}>Contact</span>
           <ChevronDownIcon
-            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${
-              activeDropdown === 'contact' ? 'rotate-180 text-primary-400' : ''
-            }`}
+            className={`ml-1.5 w-4 h-4 transition-transform duration-200 ${activeDropdown === 'contact' ? 'rotate-180 text-primary-400' : ''
+              }`}
           />
         </button>
 
@@ -230,13 +227,13 @@ export default function DesktopNav() {
             >
               <div className="space-y-3">
                 <a
-                  href="tel:+13159498539"
+                  href="tel:+14102107831"
                   className="flex items-center px-3 py-2 text-sm text-gray-300 hover:bg-dark-100/50 hover:text-primary-400 rounded-lg transition-colors"
                 >
                   <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-primary-500/20 mr-3">
                     <FaPhoneAlt className="w-3.5 h-3.5 text-primary-400" />
                   </div>
-                  +1-(315)-949-8539
+                  +1-(410)-210-7831
                 </a>
                 <a
                   href="mailto:contact@lendingforte.com"

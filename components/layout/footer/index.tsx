@@ -196,9 +196,9 @@ export default function Footer() {
                 © {currentYear} LendingForte. All rights reserved.
               </p>
               <span className="hidden md:inline text-dark-100">|</span>
-              <p className="text-gray-500 text-xs">
+              {/* <p className="text-gray-500 text-xs">
                 <span className="text-primary-500">LendingForte</span> is a fictional brand created for demonstration purposes only.
-              </p>
+              </p> */}
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm mt-4 md:mt-0">
               <Link

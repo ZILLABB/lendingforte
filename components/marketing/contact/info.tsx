@@ -1,11 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  PhoneIcon, 
-  EnvelopeIcon, 
-  MapPinIcon, 
-  ClockIcon 
+import {
+  PhoneIcon,
+  EnvelopeIcon,
+  MapPinIcon,
+  ClockIcon
 } from '@heroicons/react/24/outline';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 
@@ -15,12 +15,12 @@ export default function ContactInfo() {
       icon: <PhoneIcon className="w-6 h-6" />,
       title: 'Phone',
       details: [
-        { label: 'Main Office', value: '+1-(315)-949-8539' },
-        { label: 'Customer Support', value: '+1-(315)-949-8540' }
+        { label: 'Main Office', value: '+1-(410)-210-7831' },
+        { label: 'Customer Support', value: '+1-(410)-210-7832' }
       ],
       action: {
         label: 'Call Us',
-        href: 'tel:+13159498539'
+        href: 'tel:+14102107831'
       }
     },
     {
@@ -65,7 +65,7 @@ export default function ContactInfo() {
     <section className="py-16 md:py-24 bg-dark-200" id="contact-info">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -74,7 +74,7 @@ export default function ContactInfo() {
           >
             Get In Touch
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -99,7 +99,7 @@ export default function ContactInfo() {
                 {method.icon}
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">{method.title}</h3>
-              
+
               <div className="space-y-2 mb-4">
                 {method.details.map((detail, i) => (
                   <div key={i}>
@@ -112,9 +112,9 @@ export default function ContactInfo() {
                   </div>
                 ))}
               </div>
-              
-              <a 
-                href={method.action.href} 
+
+              <a
+                href={method.action.href}
                 className="inline-flex items-center text-primary-400 hover:text-primary-300 font-medium"
               >
                 {method.action.label}
@@ -125,8 +125,8 @@ export default function ContactInfo() {
             </motion.div>
           ))}
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

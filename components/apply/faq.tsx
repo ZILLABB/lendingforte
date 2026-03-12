@@ -211,7 +211,7 @@ export default function ApplyFAQ() {
                   </Link>
 
                   <Link
-                    href="tel:+13159498539"
+                    href="tel:+14102107831"
                     className="inline-flex items-center px-6 py-3 bg-dark-100 hover:bg-dark-300 text-white font-medium rounded-lg transition-colors shadow-sm"
                   >
                     <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
